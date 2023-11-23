@@ -17,6 +17,7 @@
     <h1>Booked Movie Tickets</h1>
     <table class="table table-hover">
         <tr>
+        <th></th>
             <th>Movie Name</th>
             <th>Theater Name</th>
             <th>Show Time</th>

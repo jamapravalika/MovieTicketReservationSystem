@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="assets/css/Ticket.css">
 </head>
 <body>
+<%
+    int selectedSeatCount = (int) session.getAttribute("quantity");
+%>
     <div class="center">
       <div class="tickets">
         <div class="ticket-selector">
@@ -77,13 +80,13 @@
       </div>
     </div>
 <script>
-      let seats = document.querySelector(".all-seats");
-      for (var i = 0; i < 59; i++) {
+    let seats = document.querySelector(".all-seats");
+    for (var i = 0; i < 59; i++) {
         let randint = Math.floor(Math.random() * 2);
         let booked = randint === 1 ? "booked" : "";
         seats.insertAdjacentHTML(
-          "beforeend",
-          '<input type="checkbox" name="tickets" id="s' +
+            "beforeend",
+            '<input type="checkbox" name="tickets" id="s' +
             (i + 2) +
             '" /><label for="s' +
             (i + 2) +
@@ -91,26 +94,32 @@
             booked +
             '"></label>'
         );
-      }
-      let tickets = seats.querySelectorAll("input");
-      tickets.forEach((ticket) => {
+    }
+    let tickets = seats.querySelectorAll("input");
+    tickets.forEach((ticket) => {
         ticket.addEventListener("change", () => {
-          let amount = document.querySelector(".amount").innerHTML;
-          let count = document.querySelector(".count").innerHTML;
-          amount = Number(amount);
-          count = Number(count);
-          if (ticket.checked) {
-            count += 1;
-            amount += 200;
-          } else {
-            count -= 1;
-            amount -= 200;
-          }
-          document.querySelector(".amount").innerHTML = amount;
-          document.querySelector(".count").innerHTML = count;
+            let amount = document.querySelector(".amount").innerHTML;
+            let count = document.querySelector(".count").innerHTML;
+            amount = Number(amount);
+            count = Number(count);
+
+            if (count <= <%= selectedSeatCount %>-1) {
+                if (ticket.checked) {
+                    count += 1;
+                    amount += 200;
+                } else {
+                    count -= 1;
+                    amount -= 200;
+                }
+            } else {
+                ticket.checked = false;
+            }
+
+            document.querySelector(".amount").innerHTML = amount;
+            document.querySelector(".count").innerHTML = count;
         });
-      });
-    </script>
+    });
+</script>
 
     <%@ include file="footer.html" %>
 </body>

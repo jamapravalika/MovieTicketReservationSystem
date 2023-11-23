@@ -53,6 +53,8 @@ public class UserBookings extends HttpServlet {
 		System.out.println("in post");
         HttpSession session = request.getSession();
         
+        int movieName1 = (int) session.getAttribute("MovieName");
+        
         String MoviePoster = request.getParameter("moviePoster");
         String useremail = (String) session.getAttribute("useremail");
         String movieName = request.getParameter("moviename");

@@ -1,4 +1,3 @@
-
 <%@ page import="java.util.List"%>
 <%@ page import="com.Model.Movie"%>
 <%@ page import="java.util.Base64"%>
