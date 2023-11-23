@@ -213,7 +213,7 @@
   	<servlet-name>DisplayTicket</servlet-name>
   	<url-pattern>/ticket</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
+  <servlet-mapping> 
   	<servlet-name>EditMovieServlet</servlet-name>
   	<url-pattern>/EditMovieServlet</url-pattern>
   </servlet-mapping>

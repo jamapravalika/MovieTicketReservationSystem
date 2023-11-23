@@ -20,7 +20,7 @@ import com.Model.Bookings;
 /**
  * Servlet implementation class BookingServlet
  */
-@WebServlet("/Booking")
+
 public class BookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

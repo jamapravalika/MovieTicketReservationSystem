@@ -70,7 +70,7 @@ public class EditShowServlet extends HttpServlet {
         boolean success = showTimeDao.UpdateShowTime(showtime);
         
         if (success) {
-            response.sendRedirect("/MovieTicketReservation/viewshowtime");
+            response.sendRedirect("/MovieTicketReservationSystem/viewshowtime");
         } else {
             response.sendRedirect("Error.jsp");
         }

@@ -16,7 +16,7 @@ import com.Model.Movie;
 /**
  * Servlet implementation class AdmMovieServlet
  */
-
+@WebServlet("/AdmMovieServlet")
 public class AdmMovieServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

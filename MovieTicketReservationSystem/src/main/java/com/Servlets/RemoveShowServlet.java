@@ -41,7 +41,7 @@ public class RemoveShowServlet extends HttpServlet {
         ShowTimeDao showTimeDao = new ShowTimeDao();
         showTimeDao.DeleteShowTime(showtimeId);
 
-        response.sendRedirect("/MovieTicketReservation/viewshowtime");
+        response.sendRedirect("/MovieTicketReservationSystem/viewshowtime");
 		}
 		catch(Exception e) {
 	         e.printStackTrace();

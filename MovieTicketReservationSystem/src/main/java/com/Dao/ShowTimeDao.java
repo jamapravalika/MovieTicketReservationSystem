@@ -122,7 +122,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	public ShowTimes getshowtimeId(int showtimeId) {
 		Connection con = DbConnection.getConnection();
 		ShowTimes showtime = null;
-        final String select = "SELECT * FROM 	showtimes where showtime_Id = ?";
+        final String select = "SELECT * FROM showtimes where showtime_Id = ?";
         try {
             PreparedStatement pstmt = con.prepareStatement(select);
             pstmt.setInt(1, showtimeId);

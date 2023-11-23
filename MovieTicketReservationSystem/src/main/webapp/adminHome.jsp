@@ -87,8 +87,8 @@
           <a href="AddMovies.jsp" class="nav_link"> <i class='fas fa-film nav_icon'></i> <span class="nav_name">Add Movies</span> </a>
           <a href="theater.jsp" class="nav_link"> <i class='fas fa-building nav_icon'></i> <span class="nav_name">Add Theaters</span></a>
           <a href="addShowtiming.jsp" class="nav_link"> <i class='fas fa-clock nav_icon'></i> <span class="nav_name">Add ShowTimings</span></a>
-          <a href="/MovieTicketReservation/UserTable" class="nav_link"> <i class='fas fa-users nav_icon'></i> <span class="nav_name">Users</span></a>
-          <a href="/MovieTicketReservation/Booking" class="nav_link"> <i class='bx bx-cart nav_icon'></i> <span class="nav_name">Bookings</span></a>
+          <a href="/MovieTicketReservationSystem/UserTable" class="nav_link"> <i class='fas fa-users nav_icon'></i> <span class="nav_name">Users</span></a>
+          <a href="/MovieTicketReservationSystem/Booking" class="nav_link"> <i class='bx bx-cart nav_icon'></i> <span class="nav_name">Bookings</span></a>
 
           <a href="#" class="nav_link" role="button" data-bs-toggle="collapse" data-bs-target="#collapseView" aria-expanded="false" aria-controls="collapseView">
             <i class="fa-solid fa-eye"></i>
@@ -96,9 +96,9 @@
           </a>
           <div class="collapse" id="collapseView">
             <div class="card card-body">
-              <a class="dropdown-item" href="/MovieTicketReservation/viewmovies"><i class="fa-solid fa-clapperboard fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Movies</a>
-              <a class="dropdown-item" href="/MovieTicketReservation/viewTheater"><i class="fa-solid fa-masks-theater fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Theaters</a>
-              <a class="dropdown-item" href="/MovieTicketReservation/AddShowServlet"><i class="fa-sharp fa-regular fa-clock fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Show Timings</a>
+              <a class="dropdown-item" href="/MovieTicketReservationSystem/viewmovies"><i class="fa-solid fa-clapperboard fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Movies</a>
+              <a class="dropdown-item" href="/MovieTicketReservationSystem/viewTheater"><i class="fa-solid fa-masks-theater fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Theaters</a>
+              <a class="dropdown-item" href="/MovieTicketReservationSystem/AddShowServlet"><i class="fa-sharp fa-regular fa-clock fa-spin" style="margin-right: 8%; margin-left: 1%;"></i> Show Timings</a>
             </div>
           </div>
           <!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a> -->
@@ -120,7 +120,7 @@
             <div class="card-body">
               <h5 class="card-title">Total Movies</h5>
               <p class="card-text">50</p>
-              <a href="/MovieTicketReservation/viewmovies" class="btn btn-primary">View Details</a>
+              <a href="/MovieTicketReservationSystem/viewmovies" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@
             <div class="card-body">
               <h5 class="card-title">Total Theaters</h5>
               <p class="card-text">20</p>
-              <a href="/MovieTicketReservation/viewTheater" class="btn btn-primary">View Details</a>
+              <a href="/MovieTicketReservationSystem/viewTheater" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@
             <div class="card-body">
               <h5 class="card-title">Total Time Slots</h5>
               <p class="card-text">80</p>
-              <a href="/MovieTicketReservation/AddShowServlet" class="btn btn-primary">View Details</a>
+              <a href="/MovieTicketReservationSystem/AddShowServlet" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@
             <div class="card-body">
               <h5 class="card-title">Total Bookings</h5>
               <p class="card-text">20</p>
-              <a href="/MovieTicketReservation/Booking" class="btn btn-primary">View Details</a>
+              <a href="/MovieTicketReservationSystem/Booking" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>

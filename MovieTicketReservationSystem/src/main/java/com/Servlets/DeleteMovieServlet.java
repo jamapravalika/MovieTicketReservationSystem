@@ -43,7 +43,7 @@ public class DeleteMovieServlet extends HttpServlet {
 		try {
 		MovieDao movieDao = new MovieDao();
 		movieDao.DeleteMovies(movid);
-		response.sendRedirect("/MovieTicketReservation/viewmovies");
+		response.sendRedirect("/MovieTicketReservationSystem/viewmovies");
 	 } catch (Exception e) {
          e.printStackTrace();
          response.sendRedirect("Error.jsp");

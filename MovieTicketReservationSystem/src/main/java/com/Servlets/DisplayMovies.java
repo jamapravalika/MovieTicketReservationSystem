@@ -22,7 +22,7 @@ import com.Model.Movie;
 /**
  * Servlet implementation class DisplayMovies
  */
-
+@WebServlet("/viewmovies")
 public class DisplayMovies extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

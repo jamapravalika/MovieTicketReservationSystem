@@ -67,7 +67,7 @@ public class MovieServlet extends HttpServlet {
         
 	
 		 String uploadPath =
-				"C:/Users/pssim/MovieTicketReservation/src/main/webapp/images/"
+				"C:/Users/Pravalika/MovieTicketReservationSystem/src/main/webapp/images/"
 				 		 + imageFileName;
         
 		/* String uploadPath =request.getRealPath("images"); */
@@ -136,7 +136,7 @@ public class MovieServlet extends HttpServlet {
             }
         }
 
-        response.sendRedirect("/MovieTicketReservation/viewmovies");
+        response.sendRedirect("/MovieTicketReservationSystem/viewmovies");
     }
     
     private String getSubmittedFileName(Part part) {
