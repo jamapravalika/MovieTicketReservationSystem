@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="com.Model.Bookings" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,10 @@
 </head>
 <body>
 <%
-    int selectedSeatCount = (int) session.getAttribute("quantity");
+    Bookings booking = (Bookings) request.getAttribute("booking");
+    int bookingId = (int) request.getAttribute("BookingID");
+    String MovieName = (String) request.getAttribute("MovieName");
+    int selectedSeatCount = (int) request.getAttribute("quantity");
 %>
     <div class="center">
       <div class="tickets">
@@ -24,6 +28,7 @@
               <div class="item">Booked</div>
               <div class="item">Selected</div>
             </div>
+            
             <div class="all-seats">
               <input type="checkbox" name="tickets" id="s1" />
               <label for="s1" class="seat booked"></label>
@@ -70,13 +75,18 @@
             
           </div>
         </div>
-        <div class="price">
-          <div class="total">
-            <span> <span class="count">0</span> Tickets </span>
-            <div class="amount">0</div>
-          </div>
-          <a href="/MovieTicketReservationSystem/ticket"><button type="button">Book</button></a>
-        </div>
+        <form action="ticket" method="get">
+            <div class="price">
+                <div class="total">
+                    <input type="hidden" name="MovieName" value="<%= MovieName %>" />
+                    <input type="hidden" name="bookingId" value="<%= bookingId %>" />
+
+                    <span> <span class="count">0</span> Tickets </span>
+                    <div class="amount">0</div>
+                </div>
+                <a href="/MovieTicketReservationSystem/ticket"><button type="submit">Book</button></a>
+            </div>
+        </form>
       </div>
     </div>
 <script>

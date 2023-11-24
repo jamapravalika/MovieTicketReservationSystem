@@ -309,6 +309,7 @@ tr {
                                                             <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image" style="height: 150px; width: 150px;">
                                                             <input type="hidden" class="form-control moviename" name="MovieImage" value="<%= movie.getMovie_Poster() %>">
                                                             <input type="hidden" class="form-control moviename" name="moviename" value="<%= movie.getMovie_Name() %>">
+                                                           
                                                         </div>
                                                         <div style="margin-left: 20%;margin-top:6%;">
                                                             <h7 style="margin-left: 20%; margin-top:7%;">Total Seats</h7>

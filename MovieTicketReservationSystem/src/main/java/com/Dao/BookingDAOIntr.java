@@ -18,4 +18,10 @@ public interface BookingDAOIntr {
 	public List<Bookings> ShowBooking(HttpServletRequest request);
 	
 	public List<Bookings> ShowBookingByUserEmail(HttpServletRequest request);
+	
+	public List<Bookings> ShowBookingByUserAndMovie(HttpServletRequest request);
+
+	public Bookings getBookingById(int bookingId);
+	
+	public int getLastInsertedBookingId();
 }

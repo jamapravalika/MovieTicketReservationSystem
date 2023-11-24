@@ -37,11 +37,10 @@ public class BookingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		BookingDAOIntr booking = new BookingDAO();
 	    List<Bookings> bookedTickets = booking.ShowBooking(request);
 	    
-	    // Set the bookedTickets attribute in the request
 	    request.setAttribute("bookings", bookedTickets);
 	    
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("Booking.jsp");
@@ -52,10 +51,10 @@ public class BookingServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 System.out.println("in post");
-		 HttpSession session = request.getSession();
-		 
-		 String useremail = (String) session.getAttribute("useremail");
+		System.out.println("in post");
+		HttpSession session = request.getSession();
+
+	    String useremail = (String) session.getAttribute("useremail");
 	    String movieName = request.getParameter("moviename");
 	    String theaterName = request.getParameter("theatre_name");
 	    String startTimeStr = request.getParameter("time_start").trim();
@@ -67,23 +66,32 @@ public class BookingServlet extends HttpServlet {
 	    int selectedSeatCount = Integer.parseInt(request.getParameter("quantity"));
 
 	    Date bookingDate = new Date(System.currentTimeMillis());
-	    
-	    System.out.println("moviePoster : "+ MoviePoster);
-	    System.out.println("useremail : "+ useremail);
-	    System.out.println("movieName : "+ movieName);
-	    System.out.println("theaterName : "+ theaterName);
-	    System.out.println("startTime : "+ startTime);
-	    System.out.println("quantity : "+ quantity);
-	    System.out.println("totalPrice : "+ totalPrice);
-	    System.out.println("bookingDate : "+ bookingDate);
-	    
-	    BookingDAO bookingDAO = new BookingDAO();
-        bookingDAO.createBooking(useremail, movieName, theaterName, quantity, startTime, totalPrice, bookingDate, MoviePoster);
 
-        session.setAttribute("quantity", selectedSeatCount);
+	    System.out.println("moviePoster : " + MoviePoster);
+	    System.out.println("useremail : " + useremail);
+	    System.out.println("movieName : " + movieName);
+	    System.out.println("theaterName : " + theaterName);
+	    System.out.println("startTime : " + startTime);
+	    System.out.println("quantity : " + quantity);
+	    System.out.println("totalPrice : " + totalPrice);
+	    System.out.println("bookingDate : " + bookingDate);
+
+	    BookingDAO bookingDAO = new BookingDAO();
+	    bookingDAO.createBooking(useremail, movieName, theaterName, quantity, startTime, totalPrice, bookingDate, MoviePoster);
+
+	    int bookingId = bookingDAO.getLastInsertedBookingId();
+	    session.setAttribute("BookingID", bookingId);
+
+	    Bookings booking = bookingDAO.getBookingById(bookingId);
+
+	    request.setAttribute("bookings", booking);
+	    request.setAttribute("BookingID", bookingId);
+	    request.setAttribute("MovieName", movieName);
+	    request.setAttribute("quantity", selectedSeatCount);
+
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("TicketBook.jsp");
 	    dispatcher.forward(request, response);
-	}
+    }
 	
 	private float calculateTotalPrice(int quantity) {
         return 200 * quantity;
