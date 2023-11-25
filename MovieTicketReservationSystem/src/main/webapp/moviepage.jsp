@@ -75,12 +75,22 @@
 .def-number-input button:hover {
   background-color: #f1f1f1;
 } */
-@media (min-width: 768px) {
+.col-md-3 {
+	margin-bottom: 15px;
+	
+}
+ @media (min-width: 768px) {
   .col-md-3 {
     flex: 0 0 auto !important;
-    width: 32% !important;
+    width: 25% !important;
   }
  }
+ .container{
+ margin-left: 10%;
+ } 
+ .mt-3 {
+  margin-left: 13%;
+  }
 .def-number {
 	aligh-items: "center";
 }
@@ -245,20 +255,20 @@ tr {
 	<br>
 	<h2 style="margin-left: 6%;">Latest Movies</h2>
 
-	<div class="container mt-3">
+	<div class="container mt-3" style="margin-left: 9%;">
         <% 
         List<Movie> movies = (List<Movie>) request.getAttribute("movies");
         List<users> userList = (List<users>) request.getAttribute("userList");
         if (movies != null) {
             int movieCount = 0;
             for (Movie movie : movies) {
-                if (movieCount % 4 == 0) {  
+                if (movieCount % 100 == 0) {  
         %>
         <div class="row">
             <%
                 }
             %>
-            <div class="col-md-3 mb-4" style="@media{ (min-width: 768px) flex: 0 0 auto; width: 50%;}">
+            <div class="col-md-3 mb-4">
                 <div class="card">
                     <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image">
                     <div class="card-body">
@@ -369,17 +379,23 @@ tr {
                     </div>
                 </div>
             </div>
+            
             <%
-                if ((movieCount + 1) % 4 == 0 || movieCount == movies.size() - 1) {
+                if ((movieCount + 1) % 100 == 0 || movieCount == movies.size() - 1) {
             %>
-        </div>
+        </div><br>
+       
         <%
                 }
                 movieCount++;
             }
+            
         }
         %>
+    
     </div>
+    
     <%@ include file="footer.html"%>
+    
 </body>
 </html>
