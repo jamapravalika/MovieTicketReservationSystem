@@ -200,7 +200,31 @@ tr {
 .timings input[type="radio"] {
 	display: none;
 }
+.card {
+    position: relative;
+    overflow: hidden;
+}
 
+.card img {
+    transition: opacity 0.3s;
+}
+
+.card:hover img {
+    opacity: 0.6; 
+    cursor: pointer;
+}
+
+.watch-trailer-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
 </style>
 </head>
 <body>
@@ -269,7 +293,9 @@ tr {
                 }
             %>
             <div class="col-md-3 mb-4">
-                <div class="card">
+                <div class="card"> 
+                <a href="<%= movie.getTrailerlink() %>" target="_blank"><div class="watch-trailer-text"><img class="trailer-imge" src="assets/images/play-button(3).png" alt="trailer"></div></a>
+                             
                     <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title"><%= movie.getMovie_Name() %></h4>
@@ -289,12 +315,15 @@ tr {
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto;">
+                           
+                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto; margin-left: 18%;">
+                             <br>
                                 <br>
-                                <br>
+                                <div class="text-overlay">
                                 <div style="display: flex; align-items: center;">
                                     <h6 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h6>
                                     <h6><%= movie.getMovie_Release_Date() %></h6>
+                                </div>
                                 </div>
                                 <h4 style="margin-top: 20px; font-weight: bold;">About Movie</h4>
                                 <p><%= movie.getMovie_Description() %></p>
@@ -321,10 +350,11 @@ tr {
                                                             <input type="hidden" class="form-control moviename" name="moviename" value="<%= movie.getMovie_Name() %>">
                                                            
                                                         </div>
-                                                        <div style="margin-left: 20%;margin-top:6%;">
-                                                            <h7 style="margin-left: 20%; margin-top:7%;">Total Seats</h7>
+                                                        <div style="margin-left: 20%;margin-top:3%;">
+                                                        	<p><italic>Each Seat Costs: 200$</italic></p>
+                                                            <h7 style="margin-left: 20%; margin-top:5%; margin-bottom:2%;">Total Seats: </h7>
                                                             <br>
-                                                            <div class="def-number-input number-input safari_only">
+                                                            <div class="def-number-input number-input safari_only" style="margin-top:7%">
                                                                 <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                                                 <input class="quantity" min="0" name="quantity" value="1" type="number">
                                                                 <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
@@ -338,9 +368,9 @@ tr {
                                                                     List<Theater> theaters = (List<Theater>) request.getAttribute("theaters");
                                                                     if (theaters != null) {
                                                                         for (Theater theater : theaters) { %>
-                                                                            <div>
+                                                                            <div style="margin-right: 5px;">
                                                                                 <input type="radio" name="theatre_name" id="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" value="<%= theater.getTheater_Name() %>" checked /> 
-                                                                                <label for="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" class="theatre"><%= theater.getTheater_Name() %></label>
+                                                                                <label for="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" class="theatre" style="justify-content:space-between;"><%= theater.getTheater_Name() %></label>
                                                                             </div>
                                                                         <% } 
                                                                     } %>
@@ -360,7 +390,8 @@ tr {
                                                                     <% } %>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary">Select Seats</button>
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary" style="margin-top: 4%">Select Seats</button>
                                                     </div>
                                                 </form>
                                                 <br>
