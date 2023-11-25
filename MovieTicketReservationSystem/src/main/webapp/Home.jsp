@@ -72,10 +72,10 @@
 
         </li>
       </ul>
-      <form class="d-flex" action="Movie.jsp">
-      	<label for="keyword">Search:</label>
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <i class="fas fa-search"></i>
+      <form class="d-flex" action="SearchServlet" method="post">
+        <label for="keyword"></label>
+        <input class="form-control me-2" type="text" id="keyword" name="keyword" placeholder="Search">
+        <i class="fas fa-search" value="Search"></i>
       </form>
     </div>
   </div>
