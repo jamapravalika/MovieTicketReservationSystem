@@ -17,13 +17,13 @@ import com.Db.DbConnection;
 import com.Model.Bookings;
 
 public class BookingDAO implements BookingDAOIntr {
-
+	@Override
 	public void createBooking(String UserEmail, String MovieName,String TheaterName,int Quantity, Time startTime, float TotalPrice,Date BookingDate, String MoviePoster) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
         try {
             conn = DbConnection.getConnection();
-            conn.setAutoCommit(false);  // Disable auto-commit to manage transactions
+            conn.setAutoCommit(false);  
 
             final String INSERT_QUERY = "INSERT INTO Bookings (useremail, MovieName, TheaterName, ShowTime,quantity, totalPrice, bookingDate, moviePoster) VALUES (?, ?, ?,?, ?, ?, ?,?);";
 
@@ -47,12 +47,12 @@ public class BookingDAO implements BookingDAOIntr {
                 }
             }
 
-            conn.commit();  // Commit the transaction
+            conn.commit(); 
         } catch (SQLException e) {
             e.printStackTrace();
-            rollback(conn);  // Rollback the transaction in case of an exception
+            rollback(conn);  
         } finally {
-            closeConnection(conn);  // Close the database connection
+            closeConnection(conn); 
         }
     }
 	
@@ -77,7 +77,7 @@ public class BookingDAO implements BookingDAOIntr {
 	        }
 	    }
 	
-
+	@Override
 	public boolean confirmBooking(int Booking_Id) {
 		// TODO Auto-generated method stub
 		Connection conn = DbConnection.getConnection();
@@ -99,7 +99,7 @@ public class BookingDAO implements BookingDAOIntr {
         }
 		return false;
 	}
-
+	@Override
 	public void deleteBooking(int Booking_Id) {
 		// TODO Auto-generated method stub
 		Connection conn = DbConnection.getConnection();
@@ -117,7 +117,7 @@ public class BookingDAO implements BookingDAOIntr {
             System.out.println("Finally Block");
         }
 	}
-
+	@Override
 	public List<Bookings> ShowBooking(HttpServletRequest request) {
 	    // TODO Auto-generated method stub
 	    Connection conn = DbConnection.getConnection();
@@ -130,6 +130,7 @@ public class BookingDAO implements BookingDAOIntr {
 
 	        while (result.next()) {
 	        	Bookings booking = new Bookings();
+	        	booking.setBookingId(result.getInt("BookingId"));
 	            booking.setUseremail(result.getString("useremail")); 
 	            booking.setMovieName(result.getString("MovieName")); 
 	            booking.setTheaterName(result.getString("TheaterName"));
@@ -150,6 +151,7 @@ public class BookingDAO implements BookingDAOIntr {
 
 	    return bookings;
 	}
+	@Override
 	public List<Bookings> ShowBookingByUserEmail(HttpServletRequest request) {
 	    // TODO Auto-generated method stub
 		List<Bookings> bookedTickets = new ArrayList<>();
@@ -169,6 +171,7 @@ public class BookingDAO implements BookingDAOIntr {
 
 	        while (result.next()) {
 	        	Bookings booking = new Bookings();
+	        	booking.setBookingId(result.getInt("BookingId"));
 	            booking.setUseremail(result.getString("useremail")); 
 	            booking.setMovieName(result.getString("MovieName")); 
 	            booking.setTheaterName(result.getString("TheaterName"));
@@ -189,6 +192,108 @@ public class BookingDAO implements BookingDAOIntr {
 
 	    return bookedTickets;
 	}
+	@Override
+	public List<Bookings> ShowBookingByUserAndMovie(HttpServletRequest request) {
+        List<Bookings> bookedTickets = new ArrayList<>();
+
+        try (Connection connection = DbConnection.getConnection()) {
+            String userEmail = (String) request.getSession().getAttribute("useremail");
+            String movieName = (String) request.getSession().getAttribute("MovieName");
+
+            String sql = "SELECT * FROM bookings WHERE useremail = ? AND MovieName = ?";
+            System.out.println("SQL Query: " + sql);
+            System.out.println("User Email: " + userEmail);
+            System.out.println("Movie Name: " + movieName);
+
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, userEmail);
+                statement.setString(2, movieName);
+
+                try (ResultSet result = statement.executeQuery()) {
+                    int rowCount = 0;
+                    while (result.next()) {
+                        Bookings booking = new Bookings();
+                        booking.setBookingId(result.getInt("BookingId"));
+                        booking.setUseremail(result.getString("useremail")); 
+                        booking.setMovieName(result.getString("MovieName")); 
+                        booking.setTheaterName(result.getString("TheaterName"));
+                        booking.setShowTime(result.getTime("ShowTime"));
+                        booking.setQuantity(result.getInt("quantity"));
+                        booking.setTotalPrice(result.getFloat("totalPrice")); 
+                        booking.setBookingDate(result.getTimestamp("bookingDate")); 
+                        booking.setMoviePoster(result.getString("moviePoster"));
+                        
+                        bookedTickets.add(booking);
+                        rowCount++;
+                    }
+                    System.out.println("Number of rows in result set: " + rowCount);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return bookedTickets;
+    }
+	 @Override
+	    public Bookings getBookingById(int bookingId) {
+	        Connection connection = null;
+	        PreparedStatement preparedStatement = null;
+	        ResultSet result = null;
+	        Bookings booking = null;
+
+	        try {
+	            connection = DbConnection.getConnection();
+	            String sql = "SELECT * FROM Bookings WHERE BookingId = ?";
+	            preparedStatement = connection.prepareStatement(sql);
+	            preparedStatement.setInt(1, bookingId);
+	            result = preparedStatement.executeQuery();
+
+	            if (result.next()) {
+	            	booking = new Bookings();
+	            	booking.setBookingId(result.getInt("BookingId"));
+                    booking.setUseremail(result.getString("useremail")); 
+                    booking.setMovieName(result.getString("MovieName")); 
+                    booking.setTheaterName(result.getString("TheaterName"));
+                    booking.setShowTime(result.getTime("ShowTime"));
+                    booking.setQuantity(result.getInt("quantity"));
+                    booking.setTotalPrice(result.getFloat("totalPrice")); 
+                    booking.setBookingDate(result.getTimestamp("bookingDate")); 
+                    booking.setMoviePoster(result.getString("moviePoster"));   
+	            }
+	        } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		    	closeConnection(connection);
+		    }
+
+	        return booking;
+	    }
+	 @Override
+	 public int getLastInsertedBookingId() {
+		    Connection connection = null;
+		    PreparedStatement preparedStatement = null;
+		    ResultSet result = null;
+		    int lastInsertedBookingId = -1;
+
+		    try {
+		        connection = DbConnection.getConnection();
+		        String sql = "SELECT MAX(BookingId) AS lastId FROM Bookings";
+		        preparedStatement = connection.prepareStatement(sql);
+		        result = preparedStatement.executeQuery();
+
+		        if (result.next()) {
+		            lastInsertedBookingId = result.getInt("lastId");
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        closeConnection(connection);
+		    }
+
+		    return lastInsertedBookingId;
+		}
+
 	
 }
 

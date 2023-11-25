@@ -53,11 +53,10 @@ public class UserBookings extends HttpServlet {
 		System.out.println("in post");
         HttpSession session = request.getSession();
         
-        int movieName1 = (int) session.getAttribute("MovieName");
+        String movieName = (String) session.getAttribute("MovieName");
         
         String MoviePoster = request.getParameter("moviePoster");
         String useremail = (String) session.getAttribute("useremail");
-        String movieName = request.getParameter("moviename");
         String theaterName = request.getParameter("theatre_name");
         String startTimeStr = request.getParameter("time_start").trim();
         Time startTime = Time.valueOf(startTimeStr);
@@ -79,7 +78,8 @@ public class UserBookings extends HttpServlet {
 
         BookingDAO bookingDAO = new BookingDAO();
         bookingDAO.createBooking(useremail, movieName, theaterName, quantity, startTime, totalPrice, bookingDate, MoviePoster);
-
+        
+        session.setAttribute("movieName", movieName);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ticket.jsp");
         dispatcher.forward(request, response);
     }

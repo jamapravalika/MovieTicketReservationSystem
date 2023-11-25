@@ -32,7 +32,9 @@
         <% for (Bookings booking : (List<Bookings>) request.getAttribute("bookings")) { %>
             <tr>
             	<td><img src="images/<%= booking.getMoviePoster() %>" alt="" style="width: 80px; height: 100px;"></td>
+                <td><%= booking.getBookingId() %></td>
                 <td><%= booking.getUseremail() %></td>
+                
                 <td><%= booking.getMovieName() %></td>
                 <td><%= booking.getTheaterName() %></td>
                 <td><%= timeFormat.format(booking.getShowTime()) %></td>

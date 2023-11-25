@@ -180,9 +180,7 @@ tr {
 	
 	<div class="container mt-3">
 		<%
-		String keyword = request.getParameter("keyword");
-	    MoviesDaoIntrfc movieDAO = new MovieDao();
-	    List<Movie> searchResults = movieDAO.SearchMovies(keyword);
+		List<Movie> searchResults = (List<Movie>) request.getAttribute("searchResults");
 		 
            if (searchResults != null) {
                int movieCount = 0;

@@ -75,12 +75,22 @@
 .def-number-input button:hover {
   background-color: #f1f1f1;
 } */
-@media (min-width: 768px) {
+.col-md-3 {
+	margin-bottom: 15px;
+	
+}
+ @media (min-width: 768px) {
   .col-md-3 {
     flex: 0 0 auto !important;
-    width: 32% !important;
+    width: 25% !important;
   }
  }
+ .container{
+ margin-left: 10%;
+ } 
+ .mt-3 {
+  margin-left: 13%;
+  }
 .def-number {
 	aligh-items: "center";
 }
@@ -190,7 +200,37 @@ tr {
 .timings input[type="radio"] {
 	display: none;
 }
+.card {
+    position: relative;
+    overflow: hidden;
+}
 
+.card img {
+    transition: opacity 0.3s;
+}
+
+.card:hover img {
+    opacity: 0.6; 
+    cursor: pointer;
+}
+
+.watch-trailer-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+.text-overlay h3{
+padding-left: 10px;
+	color:#cc0d0d;
+    text-align: left;
+    font-size: 1rem;
+}
 </style>
 </head>
 <body>
@@ -245,21 +285,23 @@ tr {
 	<br>
 	<h2 style="margin-left: 6%;">Latest Movies</h2>
 
-	<div class="container mt-3">
+	<div class="container mt-3" style="margin-left: 9%;">
         <% 
         List<Movie> movies = (List<Movie>) request.getAttribute("movies");
         List<users> userList = (List<users>) request.getAttribute("userList");
         if (movies != null) {
             int movieCount = 0;
             for (Movie movie : movies) {
-                if (movieCount % 4 == 0) {  
+                if (movieCount % 100 == 0) {  
         %>
         <div class="row">
             <%
                 }
             %>
-            <div class="col-md-3 mb-4" style="@media{ (min-width: 768px) flex: 0 0 auto; width: 50%;}">
-                <div class="card">
+            <div class="col-md-3 mb-4">
+                <div class="card"> 
+                <a href="<%= movie.getTrailerlink() %>" target="_blank"><div class="watch-trailer-text"><img class="trailer-imge" src="assets/images/play-button(3).png" alt="trailer"></div></a>
+                             
                     <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title"><%= movie.getMovie_Name() %></h4>
@@ -279,15 +321,23 @@ tr {
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto;">
+                           
+                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto; margin-left: 18%;">
+                             <br>
                                 <br>
-                                <br>
-                                <div style="display: flex; align-items: center;">
-                                    <h6 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h6>
-                                    <h6><%= movie.getMovie_Release_Date() %></h6>
+                                <div class="text-overlay">
+                                <div style="align-items: center;">
+                                
+								<h3>Release Date&nbsp;: <%= movie.getMovie_Release_Date() %></h3>
+								<h3>Duration&nbsp;: <%= movie.getMovie_Duration() %></h3>
+											
+                                    <h3 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h3>
+                                </div>
                                 </div>
                                 <h4 style="margin-top: 20px; font-weight: bold;">About Movie</h4>
                                 <p><%= movie.getMovie_Description() %></p>
+                                <h4 style="margin-top: 20px; font-weight: bold;">Director</h4>
+                                <p><%= movie.getMovie_Director() %></p>
                                 <h4 style="margin-top: 20px; font-weight: bold;">Star Cast</h4>
                                 <p><%= movie.getMovie_Casts() %></p>
 
@@ -309,11 +359,13 @@ tr {
                                                             <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image" style="height: 150px; width: 150px;">
                                                             <input type="hidden" class="form-control moviename" name="MovieImage" value="<%= movie.getMovie_Poster() %>">
                                                             <input type="hidden" class="form-control moviename" name="moviename" value="<%= movie.getMovie_Name() %>">
+                                                           
                                                         </div>
-                                                        <div style="margin-left: 20%;margin-top:6%;">
-                                                            <h7 style="margin-left: 20%; margin-top:7%;">Total Seats</h7>
+                                                        <div style="margin-left: 20%;margin-top:3%;">
+                                                        	<p><italic>Each Seat Costs: 200$</italic></p>
+                                                            <h7 style="margin-left: 20%; margin-top:5%; margin-bottom:2%;">Total Seats: </h7>
                                                             <br>
-                                                            <div class="def-number-input number-input safari_only">
+                                                            <div class="def-number-input number-input safari_only" style="margin-top:7%">
                                                                 <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                                                 <input class="quantity" min="0" name="quantity" value="1" type="number">
                                                                 <button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
@@ -327,9 +379,9 @@ tr {
                                                                     List<Theater> theaters = (List<Theater>) request.getAttribute("theaters");
                                                                     if (theaters != null) {
                                                                         for (Theater theater : theaters) { %>
-                                                                            <div>
+                                                                            <div style="margin-right: 5px;">
                                                                                 <input type="radio" name="theatre_name" id="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" value="<%= theater.getTheater_Name() %>" checked /> 
-                                                                                <label for="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" class="theatre"><%= theater.getTheater_Name() %></label>
+                                                                                <label for="<%= theater.getTheater_Id() %>_<%= movie.getMovie_Id() %>" class="theatre" style="justify-content:space-between;"><%= theater.getTheater_Name() %></label>
                                                                             </div>
                                                                         <% } 
                                                                     } %>
@@ -349,7 +401,8 @@ tr {
                                                                     <% } %>
                                                             </div>
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary">Select Seats</button>
+                                                        <br>
+                                                        <button type="submit" class="btn btn-primary" style="margin-top: 4%">Select Seats</button>
                                                     </div>
                                                 </form>
                                                 <br>
@@ -368,17 +421,23 @@ tr {
                     </div>
                 </div>
             </div>
+            
             <%
-                if ((movieCount + 1) % 4 == 0 || movieCount == movies.size() - 1) {
+                if ((movieCount + 1) % 100 == 0 || movieCount == movies.size() - 1) {
             %>
-        </div>
+        </div><br>
+       
         <%
                 }
                 movieCount++;
             }
+            
         }
         %>
+    
     </div>
+    
     <%@ include file="footer.html"%>
+    
 </body>
 </html>

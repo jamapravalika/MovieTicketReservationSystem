@@ -72,7 +72,7 @@
 
         </li>
       </ul>
-      <form class="d-flex" action="SearchServlet" method="get">
+      <form class="d-flex" action="Movie.jsp">
       	<label for="keyword">Search:</label>
         <input class="form-control me-2" type="text" placeholder="Search">
         <i class="fas fa-search"></i>

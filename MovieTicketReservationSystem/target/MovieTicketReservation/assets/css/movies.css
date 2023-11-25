@@ -14,8 +14,13 @@
     justify-content: space-between;
 }
 .col-md-3 {
-    flex: 0 0 24%; /* Adjust as needed */
+    flex: 0 0 54%; /* Adjust as needed */
     width: 50%;
+}
+@media (min-width: 768px) {
+	.col-md-3{
+	flex: 0 0 auto; width: 70%;
+	}
 }
 .form-control {
     display: block;
@@ -85,8 +90,6 @@
 
     .container {
         display: flex;
-        justify-content: center;
-        align-items: center;
         padding: 15px;
     }
 
