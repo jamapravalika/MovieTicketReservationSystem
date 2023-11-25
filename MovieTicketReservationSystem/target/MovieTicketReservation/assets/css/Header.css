@@ -1,0 +1,26 @@
+.custom-navbar {
+    background-color: rgba(128, 0, 0, 0.795);
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    color: white;
+    margin-left: 20px;
+  }
+  .custom-navbar .navbar-nav .dropdown {
+    color: white;
+    margin-left: 20px;
+  }
+  .custom-navbar .navbar-brand{
+    color: white;
+    margin-right: 20px;
+  }
+  .fas.fa-search {
+    color: rgba(73, 46, 46, 0.804); 
+    font-size: 20px; 
+    margin-left: -30px; 
+    margin-top: 8px;
+    padding-right: 5%;
+  }
+ 
+
+ 

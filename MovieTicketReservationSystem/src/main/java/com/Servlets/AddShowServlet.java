@@ -36,9 +36,9 @@ public class AddShowServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ShowTimeDao showTimeDao = new ShowTimeDao();
-        List<ShowTimes> show = showTimeDao.ListAllShowTime();
+        List<ShowTimes> showtime = showTimeDao.ListAllShowTime();
 
-        request.setAttribute("showList", show);
+        request.setAttribute("showtime", showtime);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("viewshowtime.jsp");
         dispatcher.forward(request, response);

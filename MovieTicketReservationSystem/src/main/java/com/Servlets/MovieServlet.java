@@ -43,8 +43,8 @@ public class MovieServlet extends HttpServlet {
 		request.setAttribute("theaters", thea);
     	
 		ShowTimeDao showTimeDao = new ShowTimeDao();
-        List<ShowTimes> show = showTimeDao.ListAllShowTime();
-        request.setAttribute("showList", show);
+        List<ShowTimes> showtime = showTimeDao.ListAllShowTime();
+        request.setAttribute("showtime", showtime);
     	
         UserDao userDao = new UserDao();
 	    List<users> userList = userDao.getAllUsers(); 
@@ -67,7 +67,7 @@ public class MovieServlet extends HttpServlet {
         
 	
 		 String uploadPath =
-				"C:/Users/Pravalika/MovieTicketReservationSystem/src/main/webapp/images/"
+				"C:/Users/pssim/git/MovieTicketReservationSystem/MovieTicketReservationSystem/src/main/webapp/images/"
 				 		 + imageFileName;
         
 		/* String uploadPath =request.getRealPath("images"); */

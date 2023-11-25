@@ -40,30 +40,27 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	}
 	
 	@Override
-	public boolean UpdateShowTime(ShowTimes showtime) {
+	public void UpdateShowTime(ShowTimes showtime) {
 		// TODO Auto-generated method stub
 		
-		final String update_Query = "UPDATE Showtimes SET movie_name = ?, start_time = ?, end_time = ?, theater_Id = ? WHERE showtime_Id = ?";
-
-
-		try {
-            PreparedStatement statement = con.prepareStatement(update_Query);
+		final String updateQuery = "UPDATE ShowTimes SET movie_name = ?, Start_Time = ?, End_Time = ?, theater_id = ? WHERE Showtime_Id = ?";
+		
+		try(Connection connection = DbConnection.getConnection()) {
+			PreparedStatement statement = con.prepareStatement(updateQuery);
             statement.setString(1, showtime.getMovie_name().getMovie_Name());
             statement.setTime(2, showtime.getStart_Time());
             statement.setTime(3, showtime.getEnd_Time());
             statement.setInt(4, showtime.getTheater_id().getTheater_Id());
             statement.setInt(5, showtime.getShowtime_Id());
-            int rowsUpdated = statement.executeUpdate();
-            return rowsUpdated > 0;
-	    }
-		  catch (SQLException e) {
-	            e.printStackTrace();
-	        } 
-		finally {
-			System.out.println("Finally Block");
-		}
-		return false;
-	}
+            statement.executeUpdate();
+            System.out.println("Connected successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("Finally Block");
+        }
+    }
+	
 	@Override
 	public List<ShowTimes> ListAllShowTime() {
 		// TODO Auto-generated method stub
@@ -121,39 +118,39 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	@Override
 	public ShowTimes getshowtimeId(int showtimeId) {
 		Connection con = DbConnection.getConnection();
-		ShowTimes showtime = null;
-        final String select = "SELECT * FROM showtimes where showtime_Id = ?";
-        try {
-            PreparedStatement pstmt = con.prepareStatement(select);
-            pstmt.setInt(1, showtimeId);
+	    ShowTimes showtime = null;
+	    final String select = "SELECT * FROM showtimes WHERE showtimeId = ?";
+	    try {
+	        PreparedStatement pstmt = con.prepareStatement(select);
+	        pstmt.setInt(1, showtimeId);
 
-            ResultSet rs = pstmt.executeQuery();
+	        ResultSet rs = pstmt.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt("showtimeId");
-                String movieName = rs.getString("movieName");
-                Time start = rs.getTime("startTime");
-                Time end = rs.getTime("endTime");
-                int theater = rs.getInt("theaterId");
+	        while (rs.next()) {
+	            int id = rs.getInt("showtimeId");
+	            String movieName = rs.getString("movieName");
+	            Time start = rs.getTime("startTime");
+	            Time end = rs.getTime("endTime");
+	            int theater = rs.getInt("theaterId");
 
-                Movie movie = new Movie();
-                movie.setMovie_Name(movieName);
+	            Movie movie = new Movie();
+	            movie.setMovie_Name(movieName);
 
-                Theater theaterId = new Theater();
-                theaterId.setTheater_Id(theater);
+	            Theater theaterId = new Theater();
+	            theaterId.setTheater_Id(theater);
 
-                showtime = new ShowTimes(id, movie, start, end, theaterId);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+	            showtime = new ShowTimes(id, movie, start, end, theaterId);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            con.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
 
-        return showtime;
+	    return showtime;
     }
 }

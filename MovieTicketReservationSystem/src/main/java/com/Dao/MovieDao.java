@@ -184,10 +184,9 @@ public  class MovieDao implements MoviesDaoIntrfc{
 	
 	@Override
 	public List<Movie> SearchMovies(String keyword) {
-		Connection con = DbConnection.getConnection();
-		try {
-        	
-            PreparedStatement pstmt = con.prepareStatement(SEARCH_QUERY);
+		try (Connection con = DbConnection.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(SEARCH_QUERY)) {
+			
             pstmt.setString(1, "%"+keyword+"%");
             pstmt.setString(2, "%"+keyword+"%");
             ResultSet rs = pstmt.executeQuery();

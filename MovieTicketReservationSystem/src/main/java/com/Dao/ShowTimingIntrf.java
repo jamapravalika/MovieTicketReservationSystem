@@ -9,7 +9,7 @@ public interface ShowTimingIntrf {
 	
 	public void InsertShowTime(ShowTimes showtime);
 	
-	public boolean UpdateShowTime(ShowTimes showtime);
+	public void UpdateShowTime(ShowTimes showtime);
 	
 	public void DeleteShowTime(int showtimeId);
 	

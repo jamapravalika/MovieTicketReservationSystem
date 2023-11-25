@@ -26,42 +26,40 @@
 </head>
 <body>
 <%@ include file="aHeader.jsp" %>
-    <section id="movies">
-        <h2>Edit Show Time</h2>
-        <a>
-            <div class="container" style="max-width: 660px; margin-top: 5%;">
-                <h2 style="text-align: center; padding: 0">Edit Show Time</h2>
-                <br>
-                </br>
-                <!-- Add Show Timing Form -->
-                <form action="EditShowServlet" method="post">
-                    <% 
-        			int showtimeId = Integer.parseInt(request.getParameter("showtimeId"));
-					
-                    ShowTimeDao showDao = new ShowTimeDao();
-        			ShowTimes show = showDao.getshowtimeId(showtimeId);
-        			%>
-                    <div class="form-group">
-                    	<input type="hidden" name="Showtime_Id" value="<%= show.getShowtime_Id() %>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="Movie_Name" placeholder="Movie Name" value="<%= show.getMovie_name() %>" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="time" name="Start_Time"  value="<%= show.getStart_Time() %>" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="time" name="End_Time"  value="<%= show.getEnd_Time() %>" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="theater_id" placeholder="Theater ID"  value="<%= show.getTheater_id() %>" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="color: #fff;">Update Show Time</button>
-                    </div>
+        <section id="showtime">
+        <div class="container" style="max-width: 660px; margin-top: 5%;">
+        <h1>Edit Show Time</h1>
+        <form action="EditShowServlet" method="post">
+          <%
+			int showtime = Integer.parseInt(request.getParameter("ShowTime_Id"));
+			System.out.println("ShowTime_Id parameter value: " + showtime);
+			
+        	ShowTimeDao showDao = new ShowTimeDao();
+        	ShowTimes show = showDao.getshowtimeId(showtime);
+
+			%>
+            <!-- Your form and input fields -->
+            	<div class="form-group">
+                	<input type="hidden" name="Showtime_Id" value="<%= show.getShowtime_Id() %>">
+            	</div>
+            	<div class="form-group">
+               		<input type="text" name="Movie_Name" placeholder="Movie Name" value="<%= show.getMovie_name().getMovie_Name() %>" required>
+            	</div>
+            	<div class="form-group">
+                	<input type="time" name="Start_Time" value="<%= show.getStart_Time() %>" required>
+            	</div>
+            	<div class="form-group">
+                	<input type="time" name="End_Time" value="<%= show.getEnd_Time() %>" required>
+            	</div>
+            	<div class="form-group">
+              	  <input type="number" name="theater_id" placeholder="Theater ID" value="<%= show.getTheater_id().getTheater_Id() %>" required>
+            	</div>
+            	<div class="form-group">
+                	<button type="submit" class="btn btn-primary" style="color: #fff;">Update Show Time</button>
+            	</div>
+
                 </form>
             </div>
-        </a>
     </section>
 </body>
 </html>

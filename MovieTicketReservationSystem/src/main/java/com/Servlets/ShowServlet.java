@@ -34,17 +34,12 @@ public class ShowServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		 listAllShowTime(request, response);
-    }
+		ShowTimeDao showTimeDao = new ShowTimeDao();
+        List<ShowTimes> showtimes = showTimeDao.ListAllShowTime();
 
-    private void listAllShowTime(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ShowTimeDao showTimeDao = new ShowTimeDao();
-        List<ShowTimes> show = showTimeDao.ListAllShowTime();
+        request.setAttribute("showtimes", showtimes);
 
-        request.setAttribute("showList", show);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("ShowTime.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("viewshowtime.jsp");
         dispatcher.forward(request, response);
     }
 

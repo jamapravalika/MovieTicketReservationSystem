@@ -1,0 +1,642 @@
+.custom-card-image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+/*     align-self: center; */
+    
+}
+/* .modal img{
+	padding-left:20%;
+} */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.col-md-3 {
+    flex: 0 0 24%; /* Adjust as needed */
+    width: 50%;
+}
+.form-control {
+    display: block;
+    /* width: 100%; */
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.card {
+    width: 250px;
+    margin-bottom: 20px; 
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+}
+.card-body p{
+	color: #cb4812;
+}
+.hny-title {
+    margin-left: 7%;
+}
+
+.carousel-inner > .carousel-item > img {
+        width: 70%;
+        margin: auto;
+        display: block;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    .carousel-item {
+        border: 1px solid #ddd;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s;
+        background: linear-gradient(#825ef83a, hwb(280 55% 1% / 0.216));
+    }
+
+    .carousel-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .carousel-inner > .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .carousel-caption {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+    }
+
+    .carousel {
+        background-color: transparent;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+
+    /* Additional styles */
+
+    /* Add a border-radius to carousel controls */
+    .carousel-control-prev, .carousel-control-next {
+        border-radius: 50%;
+    }
+
+    /* Add styles to indicator bullets */
+    .carousel-indicators li {
+        background-color: #007BFF; /* Change to your preferred color */
+        border: 2px solid #007BFF;
+        width: 12px;
+        height: 12px;
+        margin: 0 6px;
+        border-radius: 50%;
+    }
+
+    /* Style active indicator */
+    .carousel-indicators .active {
+        background-color: #007BFF; /* Change to your preferred color */
+        border-color: #007BFF;
+    }
+    
+    .modal.fade {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+.def-number-input {
+  display: inline-block;
+  max-width: 120px;
+  
+}
+
+/* Styles for the plus and minus buttons */
+.def-number-input button {
+  font-size: 20px;
+  width: 26px;
+  height: 33px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.def-number-input button:hover {
+  background-color: #f1f1f1;
+}
+.btn-primary {
+display: inline-block;
+            padding: 10px 70px;
+            background: linear-gradient(90deg, rgba(244, 11, 11, 0.8), rgba(0, 0, 0, 0.8) 87.19%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 20.19%, rgba(244, 11, 11, 0.8));
+
+        }
+/* inner modal */
+
+.number-input input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number-input button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  height: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.number-input button.plus:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+  text-align: center;
+}
+
+.number-input.number-input {
+  border: 1px solid #ced4da;
+  width: 10rem;
+  border-radius: .25rem;
+}
+
+.number-input.number-input button {
+  width: 2.6rem;
+  height: .7rem;
+}
+
+.number-input.number-input button.minus {
+  padding-left: 10px;
+}
+
+.number-input.number-input button:before,
+.number-input.number-input button:after {
+  width: .7rem;
+  background-color: #495057;
+}
+
+.number-input.number-input input[type=number] {
+  max-width: 4rem;
+  padding: .5rem;
+  border: 1px solid #ced4da;
+  border-width: 0 1px;
+  font-size: 1rem;
+  height: 2rem;
+  color: #495057;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color:transparent) {
+
+    .number-input.def-number-input.safari_only button:before,
+    .number-input.def-number-input.safari_only button:after {
+      margin-top: -.3rem;
+    }
+  }
+}
+.day {
+        font-size: 12px;
+      }
+      .times {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .time {
+        font-size: 14px;
+        width: fit-content;
+        padding: 7px 14px;
+        background: rgb(233, 233, 233);
+        border-radius: 2mm;
+        cursor: pointer;
+      }
+      .timings input:checked + label {
+        background: rgb(285, 115, 115);
+        color: white;
+      }
+      .price {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .total {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .total span {
+        font-size: 11px;
+        font-weight: 400;
+      }
+      .price button {
+        background: rgb(60, 60, 60);
+        color: white;
+        font-family: poppins;
+        font-size: 14px;
+        padding: 7px 14px;
+        border-radius: 2mm;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+	body {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          to right,
+          rgb(216, 162, 162),
+          rgb(194, 102, 102)
+        );
+      }
+      .tickets {
+        width: 550px;
+        height: fit-content;
+        border: 0.4mm solid rgba(0, 0, 0, 0.08);
+        border-radius: 3mm;
+        box-sizing: border-box;
+        padding: 10px;
+        font-family: poppins;
+        max-height: 96vh;
+        overflow: auto;
+        background: white;
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .ticket-selector {
+        background: rgb(243, 243, 243);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .seats {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 150px;
+        position: relative;
+      }
+      .status {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .seats::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 220px;
+        height: 7px;
+        background: rgb(141, 198, 255);
+        border-radius: 0 0 3mm 3mm;
+        border-top: 0.3mm solid rgb(180, 180, 180);
+      }
+      .item {
+        font-size: 12px;
+        position: relative;
+      }
+      .item::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        transform: translate(0, -50%);
+        width: 10px;
+        height: 10px;
+        background: rgb(255, 255, 255);
+        outline: 0.2mm solid rgb(120, 120, 120);
+        border-radius: 0.3mm;
+      }
+      .item:nth-child(2)::before {
+        background: rgb(180, 180, 180);
+        outline: none;
+      }
+      .item:nth-child(3)::before {
+        background: rgb(285, 115, 115);
+        outline: none;
+      }
+      .all-seats {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 15px;
+        margin: 60px 0;
+        margin-top: 20px;
+        position: relative;
+      }
+      .seat {
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 0.5mm;
+        outline: 0.3mm solid rgb(180, 180, 180);
+        cursor: pointer;
+      }
+      .all-seats input:checked + label {
+        background: rgb(285, 115, 115);
+        outline: none;
+      }
+      .seat.booked {
+        background: rgb(180, 180, 180);
+        outline: none;
+      }
+      
+      .timings {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .dates {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dates-item {
+        width: 50px;
+        height: 40px;
+        background: rgb(233, 233, 233);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px 0;
+        border-radius: 2mm;
+        cursor: pointer;
+      }
+      .day {
+        font-size: 12px;
+      }
+      .times {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .time {
+        font-size: 14px;
+        width: fit-content;
+        padding: 7px 14px;
+        background: rgb(233, 233, 233);
+        border-radius: 2mm;
+        cursor: pointer;
+      }
+      .timings input:checked + label {
+        background: rgb(285, 115, 115);
+        color: white;
+      }
+      .price {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .total {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .total span {
+        font-size: 11px;
+        font-weight: 400;
+      }
+      .price button {
+        background: rgb(60, 60, 60);
+        color: white;
+        font-family: poppins;
+        font-size: 14px;
+        padding: 7px 14px;
+        border-radius: 2mm;
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+      .timings input:checked + label {
+  background: rgb(285, 115, 115);
+  color: white;
+}
+.timings input:checked + label {
+  background: rgb(285, 115, 115);
+  color: white;
+}
+.timings input:checked + label {
+  background: rgb(285, 115, 115);
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .owl-carousel {
+    /* display: none; */
+    /* width: 100%;
+    z-index: 1;
+}
+.owl-carousel, .owl-carousel .owl-item {
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+} */ 
+
+/* <section class="w3l-main-slider position-relative" id="home">
+<div class="companies20-content">
+    <div class="owl-one owl-carousel owl-theme">
+        <div class="item">
+            <li>
+                <div class="slider-info banner-view bg bg2">
+                    <div class="banner-info">
+                        <h3>Jawan Movie Trailer</h3>
+                        <p>
+                            A high-octane action thriller that outlines<span
+                                class="over-para"> the emotional journey of a man who
+                                is set to rectify the wrongs in society.</span>
+                        </p>
+                        <a href="#small-dialog1" class="popup-with-zoom-anim play-view1">
+                            <span class="video-play-icon"> <span class="fa fa-play"
+                                style="align-items: center;"></span>
+                        </span>
+                            <h6>Watch Trailer</h6>
+                        </a>
+                        <div id="small-dialog1" class="zoom-anim-dialog mfp-hide">
+                            <iframe src="trailervideos\JawanTrailer.mp4"
+                                allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div class="item">
+            <li>
+                <div class="slider-info  banner-view banner-top1 bg bg2">
+                    <div class="banner-info">
+                        <h3>Miss Shetty Mr Polishetty</h3>
+                        <p>
+                            While Miss Shetty is a feminist living in London and wants to
+                            be single forever,<span class="over-para"> Mr.
+                                Polishetty from Hyderabad wants to be in a committed
+                                relationship. Despite being in different stages of life, they
+                                connect.</span>
+                        </p>
+                        <a href="#small-dialog2" class="popup-with-zoom-anim play-view1">
+                            <span class="video-play-icon"> <span class="fa fa-play"></span>
+                        </span>
+                            <h6>Watch Trailer</h6>
+                        </a>
+                        <div id="small-dialog2" class="zoom-anim-dialog mfp-hide">
+                            <iframe src="https://player.vimeo.com/video/395376850"
+                                allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div class="item">
+            <li>
+                <div class="slider-info banner-view banner-top2 bg bg2">
+                    <div class="banner-info">
+                        <h3>Joker</h3>
+                        <p>"Joker" is a dark and gritty psychological thriller film
+                            directed by Todd Phillips. Joker is known for its
+                            thought-provoking themes, social commentary, and its portrayal
+                            of a character study that delves deep into the complexities of
+                            human nature.</p>
+                        <a href="#small-dialog3" class="popup-with-zoom-anim play-view1">
+                            <span class="video-play-icon"> <span class="fa fa-play"></span>
+                        </span>
+                            <h6>Watch Trailer</h6>
+                        </a>
+                        <div id="small-dialog3" class="zoom-anim-dialog mfp-hide">
+                            <iframe src="https://player.vimeo.com/video/389969665"
+                                allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div class="item">
+            <li>
+                <div class="slider-info banner-view banner-top3 bg bg2">
+                    <div class="banner-info">
+                        <h3>Paw Patrol: The Mighty Movie</h3>
+                        <p>
+                            When a magical meteor crash lands in Adventure City, it gives
+                            the Paw Patrol pups<span class="over-para"> superpowers,
+                                transforming them into The Mighty Pups!</span>
+                        </p>
+                        <a href="#small-dialog4" class="popup-with-zoom-anim play-view1">
+                            <span class="video-play-icon"> <span class="fa fa-play"></span>
+                        </span>
+                            <h6>Watch Trailer</h6>
+                        </a>
+                        <div id="small-dialog4" class="zoom-anim-dialog mfp-hide">
+                            <iframe src="https://player.vimeo.com/video/323491174"
+                                allow="autoplay; fullscreen" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+
+    </div>
+</div>
+</section>  */

@@ -35,44 +35,54 @@ public class EditShowServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		ShowTimingIntrf showDao = new ShowTimeDao();
-		List<ShowTimes> showtime = showDao.ListAllShowTime();
-		request.setAttribute("showtime", showtime);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("EditShowTime.jsp");
-        dispatcher.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int showtimeId = Integer.parseInt(request.getParameter("ShowTime_Id"));
-        String movieName = request.getParameter("Movie_Name");
-        Time start = Time.valueOf(request.getParameter("Start_Time"));
-        Time end = Time.valueOf(request.getParameter("End_Time"));
-        int theater = Integer.parseInt(request.getParameter("theater_id"));
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		try {
+	        String showtimeIdParam = request.getParameter("ShowTime_Id");
+	        if (showtimeIdParam != null && !showtimeIdParam.isEmpty()) {
+	            int showtimeId = Integer.parseInt(showtimeIdParam);
+	            String movieName = request.getParameter("Movie_Name");
+	            Time start = Time.valueOf(request.getParameter("Start_Time"));
+	            Time end = Time.valueOf(request.getParameter("End_Time"));
 
-        Movie movie = new Movie();
-        movie.setMovie_Name(movieName);
-        Theater theaterId = new Theater();
-        theaterId.setTheater_Id(theater);
+	            String theaterIdParam = request.getParameter("theater_id");
+	            if (theaterIdParam != null && !theaterIdParam.isEmpty()) {
+	                int theater = Integer.parseInt(theaterIdParam);
 
-        ShowTimes showtime = new ShowTimes();
-        showtime.setShowtime_Id(showtimeId);
-        showtime.setMovie_name(movie);
-        showtime.setStart_Time(start);
-        showtime.setEnd_Time(end);
-        showtime.setTheater_id(theaterId);
+	                Movie movie = new Movie();
+	                movie.setMovie_Name(movieName);
 
-        ShowTimeDao showTimeDao = new ShowTimeDao();
-        boolean success = showTimeDao.UpdateShowTime(showtime);
-        
-        if (success) {
-            response.sendRedirect("/MovieTicketReservationSystem/viewshowtime");
-        } else {
-            response.sendRedirect("Error.jsp");
-        }
+	                Theater theaterId = new Theater();
+	                theaterId.setTheater_Id(theater);
+
+	                ShowTimes showtime = new ShowTimes();
+	                showtime.setShowtime_Id(showtimeId);
+	                showtime.setMovie_name(movie);
+	                showtime.setStart_Time(start);
+	                showtime.setEnd_Time(end);
+	                showtime.setTheater_id(theaterId);
+
+	                ShowTimeDao showTimeDao = new ShowTimeDao();
+	                showTimeDao.UpdateShowTime(showtime);
+
+	                response.sendRedirect("viewshowtime.jsp");
+	            } else {
+	                // Handle the case where theater_id is null or empty
+	                response.sendRedirect("Error.jsp"); // Replace with the appropriate error page
+	            }
+	        } else {
+	            // Handle the case where ShowTime_Id is null or empty
+	            response.sendRedirect("Error.jsp"); // Replace with the appropriate error page
+	        }
+	    } catch (IllegalArgumentException e) {
+	        // Handle the case where the parameter is not a valid integer
+	        e.printStackTrace();
+	        response.sendRedirect("Error.jsp"); // Replace with the appropriate error page
+	    }
 	}
 }
