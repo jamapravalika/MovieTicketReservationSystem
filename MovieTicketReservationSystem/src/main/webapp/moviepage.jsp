@@ -225,6 +225,12 @@ tr {
     text-align: center;
     z-index: 1;
 }
+.text-overlay h3{
+padding-left: 10px;
+	color:#cc0d0d;
+    text-align: left;
+    font-size: 1rem;
+}
 </style>
 </head>
 <body>
@@ -320,13 +326,18 @@ tr {
                              <br>
                                 <br>
                                 <div class="text-overlay">
-                                <div style="display: flex; align-items: center;">
-                                    <h6 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h6>
-                                    <h6><%= movie.getMovie_Release_Date() %></h6>
+                                <div style="align-items: center;">
+                                
+								<h3>Release Date&nbsp;: <%= movie.getMovie_Release_Date() %></h3>
+								<h3>Duration&nbsp;: <%= movie.getMovie_Duration() %></h3>
+											
+                                    <h3 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h3>
                                 </div>
                                 </div>
                                 <h4 style="margin-top: 20px; font-weight: bold;">About Movie</h4>
                                 <p><%= movie.getMovie_Description() %></p>
+                                <h4 style="margin-top: 20px; font-weight: bold;">Director</h4>
+                                <p><%= movie.getMovie_Director() %></p>
                                 <h4 style="margin-top: 20px; font-weight: bold;">Star Cast</h4>
                                 <p><%= movie.getMovie_Casts() %></p>
 
