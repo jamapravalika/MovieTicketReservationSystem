@@ -20,7 +20,6 @@ public  class MovieDao implements MoviesDaoIntrfc{
 	private static final String Update_QUERY = "UPDATE movies SET movie_name = ?, director = ?, releasedate = ?, casts = ?, description = ?, duration = ?, trailerlink = ?, genre = ? WHERE movieId = ?";
 	private static final String Delete_QUERY="DELETE FROM movies WHERE MovieId = ?";
 	private static final String SELECT_BY_ID_QUERY = "SELECT * FROM movies WHERE movieId = ?";
-	private static final String SEARCH_QUERY = "SELECT * FROM movies WHERE movie_name like ? or genre like ?";
 	
 	private static List<Movie> movies = new ArrayList<>();
 	
@@ -184,17 +183,18 @@ public  class MovieDao implements MoviesDaoIntrfc{
 	
 	@Override
 	public List<Movie> SearchMovies(String keyword) {
+		String SEARCH_QUERY = "SELECT * FROM movies WHERE movie_name like ? or genre like ?";
+		List<Movie> movies = new ArrayList<>();
+		
 		try (Connection con = DbConnection.getConnection();
 			PreparedStatement pstmt = con.prepareStatement(SEARCH_QUERY)) {
 			
             pstmt.setString(1, "%"+keyword+"%");
             pstmt.setString(2, "%"+keyword+"%");
             ResultSet rs = pstmt.executeQuery();
-            
-            Movie movie = null;
 
             while (rs.next()) {
-                movie = new Movie();
+                Movie movie = new Movie();
                 movie.setMovie_Id(rs.getInt("movieId"));
                 movie.setTheater_Id(rs.getInt("theaterId"));
                 movie.setMovie_Name(rs.getString("movie_name"));
@@ -210,18 +210,15 @@ public  class MovieDao implements MoviesDaoIntrfc{
                 Theater theater = new Theater();
                 movie.setTheater(theater);
                 
-                movList.add(movie);
+                movies.add(movie);
+                System.out.println("Connected Successfully");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            System.out.println("Finally");
         }
-        return movList;
+        return movies;
     }
 
 }
