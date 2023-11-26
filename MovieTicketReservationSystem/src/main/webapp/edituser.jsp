@@ -6,78 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        .form-container {
-            margin-top: 20px;
-        }
-
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .form-container input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-        }
-
-        .form-container button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .logout-btn {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .logout-btn button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .logout-btn button:hover {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #fff;
-            color: #e74c3c;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        } 
-    </style>
+    <link rel="stylesheet" href="assets/css/userdisplay.css">
 </head>
 <body>
 
