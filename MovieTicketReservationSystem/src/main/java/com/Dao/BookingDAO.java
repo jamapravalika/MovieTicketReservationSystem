@@ -78,10 +78,10 @@ public class BookingDAO implements BookingDAOIntr {
 	    }
 	
 	@Override
-	public boolean confirmBooking(int Booking_Id) {
+	public boolean UpdateBookings(int Booking_Id) {
 		// TODO Auto-generated method stub
 		Connection conn = DbConnection.getConnection();
-        final String UPDATE_QUERY = "UPDATE BOOKINGS SET CONFIRMED = ? WHERE BOOKINGID = ?;";
+        final String UPDATE_QUERY = "UPDATE Bookings WHERE BookingId = ?;";
         try {
             PreparedStatement pstmt = conn.prepareStatement(UPDATE_QUERY);
             pstmt.setBoolean(1, true);
@@ -103,7 +103,7 @@ public class BookingDAO implements BookingDAOIntr {
 	public void deleteBooking(int Booking_Id) {
 		// TODO Auto-generated method stub
 		Connection conn = DbConnection.getConnection();
-        final String QUERY = "DELETE FROM BOOKINGS WHERE BOOKINGID = ?;";
+        final String QUERY = "DELETE FROM Bookings WHERE BookingId = ?;";
         try {
             PreparedStatement pstm = conn.prepareStatement(QUERY);
             pstm.setInt(1, Booking_Id);
@@ -121,7 +121,7 @@ public class BookingDAO implements BookingDAOIntr {
 	public List<Bookings> ShowBooking(HttpServletRequest request) {
 	    // TODO Auto-generated method stub
 	    Connection conn = DbConnection.getConnection();
-	    final String QUERY = "SELECT * FROM bookings";
+	    final String QUERY = "SELECT * FROM Bookings";
 	    List<Bookings> bookings = new ArrayList<>();
 
 	    try {

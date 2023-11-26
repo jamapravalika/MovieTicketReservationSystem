@@ -38,8 +38,8 @@ public class Login extends HttpServlet {
 	Connection con=DbConnection.getConnection();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    
-	}
+		
+    }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uemail=request.getParameter("username");
@@ -68,13 +68,16 @@ public class Login extends HttpServlet {
 			
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
+				int userId = rs.getInt("userId");
+			    System.out.println("User ID from ResultSet: " + userId);
+			    session.setAttribute("userId", userId);
 				session.setAttribute("name", rs.getString("uname"));
 				session.setAttribute("useremail", rs.getString("uemail"));
 				dispatcher = request.getRequestDispatcher("Home.jsp");
 			}
 			else {
 				request.setAttribute("status", "failed");
-				dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher = request.getRequestDispatcher("/login.jsp");
 			}
 			dispatcher.forward(request, response);
 		}

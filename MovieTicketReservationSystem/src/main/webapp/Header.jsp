@@ -41,7 +41,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-user"></i> Account</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Account</a></li>
+            <li><a class="dropdown-item" href="/MovieTicketReservationSystem/userDetails">Account</a></li>
             <li><a class="dropdown-item" href="/MovieTicketReservationSystem/UserBookings">History</a></li>
             <li><a class="dropdown-item" href="login.jsp">Logout</a></li>
           </ul>

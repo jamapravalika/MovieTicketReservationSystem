@@ -161,6 +161,24 @@
   	<description></description>
   	<servlet-class>com.Servlets.UserBookings</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Update_Bookings</servlet-name>
+  	<display-name>Update_Bookings</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.Update_Bookings</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserDisplay</servlet-name>
+  	<display-name>UserDisplay</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.UserDisplay</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Update_User</servlet-name>
+  	<display-name>Update_User</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.Update_User</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ForgotPassword</servlet-name>
   	<url-pattern>/forgotPassword</url-pattern>
@@ -265,6 +283,19 @@
   	<servlet-name>UserBookings</servlet-name>
   	<url-pattern>/UserBookings</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Update_Bookings</servlet-name>
+    	<url-pattern>/Update_Bookings</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+    	<servlet-name>UserDisplay</servlet-name>
+    	<url-pattern>/userDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Update_User</servlet-name>
+    	<url-pattern>/edituser</url-pattern>
+    </servlet-mapping>
   
   
 </web-app>

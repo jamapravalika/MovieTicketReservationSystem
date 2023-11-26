@@ -6,4 +6,5 @@ import com.Model.users;
 
 public interface UserDaoIntrf {
 	public List<users> getAllUsers();
+	public List<users> getUserById(int userId);
 }

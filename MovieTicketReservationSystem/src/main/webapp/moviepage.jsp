@@ -205,28 +205,28 @@ tr {
     overflow: hidden;
 }
 
-.card img {
+.modal img {
     transition: opacity 0.3s;
 }
 
-.card:hover img {
+.modal img:hover{
     opacity: 0.6; 
     cursor: pointer;
 }
 
 .watch-trailer-text {
     position: absolute;
-    top: 40%;
+    top: 26%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #21060c;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     z-index: 1;
 }
 .text-overlay h3{
-padding-left: 10px;
+	padding-left: 10px;
 	color:#cc0d0d;
     text-align: left;
     font-size: 1rem;
@@ -300,8 +300,7 @@ padding-left: 10px;
             %>
             <div class="col-md-3 mb-4">
                 <div class="card"> 
-                <a href="<%= movie.getTrailerlink() %>" target="_blank"><div class="watch-trailer-text"><img class="trailer-imge" src="assets/images/play-button(3).png" alt="trailer"></div></a>
-                             
+                            
                     <img class="card-img-top custom-card-image" src="images/<%= movie.getMovie_Poster() %>" alt="Card image">
                     <div class="card-body">
                         <h4 class="card-title"><%= movie.getMovie_Name() %></h4>
@@ -321,17 +320,16 @@ padding-left: 10px;
                                 </button>
                             </div>
                             <div class="modal-body">
-                           
-                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto; margin-left: 18%;">
+                           	<a href="<%= movie.getTrailerlink() %>" target="_blank"><div class="watch-trailer-text"><img class="trailer-imge" src="assets/images/play-button(3).png" alt="trailer"><br>Watch Trailer</div></a>
+                 
+                                <img src="images/<%= movie.getMovie_Poster() %>" alt="Movie Poster" style="max-width: 100%; height: auto; margin-left: 19%;">
                              <br>
                                 <br>
                                 <div class="text-overlay">
-                                <div style="align-items: center;">
-                                
-								<h3>Release Date&nbsp;: <%= movie.getMovie_Release_Date() %></h3>
-								<h3>Duration&nbsp;: <%= movie.getMovie_Duration() %></h3>
-											
+                                <div style="align-items: center;">		
                                     <h3 style="margin-right: 20px; font-weight: bold;"><%= movie.getGenre() %></h3>
+                                    <h3><b>Duration&nbsp;</b>: <%= movie.getMovie_Duration() %> min</h3>
+                                    <h3><b>Release Date&nbsp;</b>: <%= movie.getMovie_Release_Date() %></h3>
                                 </div>
                                 </div>
                                 <h4 style="margin-top: 20px; font-weight: bold;">About Movie</h4>

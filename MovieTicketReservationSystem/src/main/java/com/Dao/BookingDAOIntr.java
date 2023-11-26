@@ -11,7 +11,7 @@ import com.Model.Bookings;
 public interface BookingDAOIntr {
 	public void createBooking(String UserEmail, String MovieName,String TheaterName,int Quantity, Time startTime, float TotalPrice,Date BookingDate, String MoviePoster);
 	
-	public boolean confirmBooking(int Booking_Id);
+	public boolean UpdateBookings(int Booking_Id);
 	
 	public void deleteBooking(int Booking_Id);
 	

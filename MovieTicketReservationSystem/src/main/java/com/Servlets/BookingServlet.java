@@ -41,6 +41,7 @@ public class BookingServlet extends HttpServlet {
 		BookingDAOIntr booking = new BookingDAO();
 	    List<Bookings> bookedTickets = booking.ShowBooking(request);
 	    
+	    
 	    request.setAttribute("bookings", bookedTickets);
 	    
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("Booking.jsp");
