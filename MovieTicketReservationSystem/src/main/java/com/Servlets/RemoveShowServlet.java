@@ -36,17 +36,18 @@ public class RemoveShowServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.print("delete");
-		int showtimeId = Integer.parseInt(request.getParameter("ShowTime_Id"));
-		try {
-        ShowTimeDao showTimeDao = new ShowTimeDao();
-        showTimeDao.DeleteShowTime(showtimeId);
+		String showtimeIdParam = request.getParameter("ShowTime_Id");
 
-        response.sendRedirect("viewshowtime.jsp");
-		}
-		catch(Exception e) {
-	         e.printStackTrace();
-	         response.sendRedirect("Error.jsp");
-		}
+        if (showtimeIdParam != null) {
+            int showtimeId = Integer.parseInt(showtimeIdParam);
+
+            ShowTimeDao showTimeDao = new ShowTimeDao();
+            showTimeDao.DeleteShowTime(showtimeId);
+
+            response.sendRedirect(request.getContextPath() + "/viewshowtime.jsp");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/Error.jsp");
+        }
 	}
 
 }

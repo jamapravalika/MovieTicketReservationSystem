@@ -60,10 +60,10 @@
                                     </a>
                                 </div>
                                 <div style="display: inline-block;">
-                                    <fo
-                                    rm action="RemoveShowServlet?ShowTime_Id=<%= showtime.getShowtime_Id() %>" method="post">
-                                        <button type="submit" class="btn btn-danger" name="delete" id="<%= showtime.getShowtime_Id() %>">Delete</button>
-                                    </form>
+                                    <form action="RemoveShowServlet" method="post">
+            							<input type="hidden" name="ShowTime_Id" value="<%= showtime.getShowtime_Id() %>">
+            							<button type="submit" class="btn btn-danger" name="delete">Delete</button>
+       								 </form>
                                 </div>
                             </td>
                         </tr>

@@ -40,7 +40,7 @@
 			%>
             <!-- Your form and input fields -->
             	<div class="form-group">
-                	<input type="hidden" name="Showtime_Id" value="<%= show.getShowtime_Id() %>">
+                	<input type="hidden" name="ShowTime_Id" value="<%= show.getShowtime_Id() %>">
             	</div>
             	<div class="form-group">
                		<input type="text" name="Movie_Name" placeholder="Movie Name" value="<%= show.getMovie_name().getMovie_Name() %>" required>

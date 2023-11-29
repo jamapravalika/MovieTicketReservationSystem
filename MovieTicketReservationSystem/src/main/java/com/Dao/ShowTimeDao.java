@@ -23,7 +23,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 		// TODO Auto-generated method stub
 		
 		try (Connection connection = DbConnection.getConnection()) {
-            String sql = "INSERT INTO ShowTimes (movieName, startTime, endTime, theaterId) VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO Showtimes (movieName, startTime, endTime, theaterId) VALUES (?, ?, ?, ?);";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, showtime.getMovie_name().getMovie_Name());
                 preparedStatement.setTime(2, showtime.getStart_Time());
@@ -43,7 +43,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	public void UpdateShowTime(ShowTimes showtime) {
 		// TODO Auto-generated method stub
 		
-		final String updateQuery = "UPDATE ShowTimes SET movie_name = ?, Start_Time = ?, End_Time = ?, theater_id = ? WHERE Showtime_Id = ?";
+		final String updateQuery = "UPDATE Showtimes SET movieName = ?, startTime = ?, endTime = ?, theaterId= ? WHERE showtimeId = ?";
 		
 		try(Connection connection = DbConnection.getConnection()) {
 			PreparedStatement statement = con.prepareStatement(updateQuery);
@@ -67,7 +67,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 		
 		List<ShowTimes> show = new ArrayList<>();
         
-        final String select_query = "SELECT * FROM 	showtimes";
+        final String select_query = "SELECT * FROM 	Showtimes";
         
         try {
             Statement statement = con.createStatement();
@@ -100,7 +100,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	@Override
 	public void DeleteShowTime(int showtimeId) {
 		// TODO Auto-generated method stub
-		final String Delete_Query ="DELETE FROM Showtimes WHERE showtime_Id = ?";
+		final String Delete_Query ="DELETE FROM Showtimes WHERE showtimeId = ?";
 		
 		try {
             PreparedStatement pstmt = con.prepareStatement(Delete_Query);
@@ -119,7 +119,7 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	public ShowTimes getshowtimeId(int showtimeId) {
 		Connection con = DbConnection.getConnection();
 	    ShowTimes showtime = null;
-	    final String select = "SELECT * FROM showtimes WHERE showtimeId = ?";
+	    final String select = "SELECT * FROM Showtimes WHERE showtimeId = ?";
 	    try {
 	        PreparedStatement pstmt = con.prepareStatement(select);
 	        pstmt.setInt(1, showtimeId);
