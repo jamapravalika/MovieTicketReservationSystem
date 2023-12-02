@@ -293,12 +293,4 @@ public class BookingDAO implements BookingDAOIntr {
 
 		    return lastInsertedBookingId;
 		}
-
-	
 }
-
-
-
-
-
-
