@@ -41,5 +41,4 @@ public class SeatsDao implements SeatsDaoIntrf{
 		
 	}
 	
-
 }

@@ -1,20 +1,20 @@
-	package com.Dao;
+package com.Dao;
 
-	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
-	import java.sql.SQLException;
-	import java.sql.Statement;
-	import java.util.ArrayList;
-	import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-	import com.Db.DbConnection;
+import com.Db.DbConnection;
 import com.Model.Movie;
 import com.Model.ShowTimes;
 import com.Model.Theater;
 
 
-	public class TheaterDao implements TheaterDaoIntrf {
+public class TheaterDao implements TheaterDaoIntrf {
 		private static final String  Select_QUERY= "Select * from Theater";
 		private static final String Insert_QUERY = "Insert into Theater (TheatrName,address,capacity) values(?,?,?)";
 	
@@ -122,11 +122,4 @@ import com.Model.Theater;
 
 		    return theater;
 		}
-
-
-	}
-
-
-
-
-
+}
