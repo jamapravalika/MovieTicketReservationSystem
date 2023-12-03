@@ -19,6 +19,32 @@
   <link rel="stylesheet" href="assets/css/Header.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   	<link rel="stylesheet" href="assets/css/Contact.css">
+<style>
+    #movetop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #movetop:hover {
+        background-color: #0056b3; /* Hover background color */
+        color: #fff; /* Hover text color */
+    }
+
+    .fa-arrow-up {
+        font-size: 20px;
+    }
+</style>
 
 </head>
 <body>
@@ -34,7 +60,7 @@
             <button type="submit">SEND</button>
         </form>
     </div>
-     <%@ include file="footer.html" %>
+     
     <!--/theme-change-->
 <script src="assets/js/theme-change.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -104,7 +130,7 @@
 		});
 	});
 </script>
-
+<%@ include file="footer.html" %>
 </body>
 </html>
     

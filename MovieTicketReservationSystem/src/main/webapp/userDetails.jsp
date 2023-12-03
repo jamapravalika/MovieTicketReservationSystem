@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="assets/css/userdisplay.css">
 </head>
 <body>
-
+<%@ include file="Header.jsp" %>
     <div class="container">
     
-        <h2>User Profile</h2>
+        <h2 style="color: #333;">Profile</h2>
         
 <% List<users> userList = (List<users>) request.getAttribute("user");
                 if (userList != null) {
@@ -42,6 +42,7 @@
             <a href="/MovieTicketReservation/edituser"><button>Edit Profile</button></a>
         </div>
     </div>
+    <%@ include file="footer.html" %>
 </body>
 </html>
  

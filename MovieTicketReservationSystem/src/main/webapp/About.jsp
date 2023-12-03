@@ -22,6 +22,32 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.min.js"></script>
+<style>
+    #movetop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #movetop:hover {
+        background-color: #0056b3; /* Hover background color */
+        color: #fff; /* Hover text color */
+    }
+
+    .fa-arrow-up {
+        font-size: 20px;
+    }
+</style>
 
 </head>
 

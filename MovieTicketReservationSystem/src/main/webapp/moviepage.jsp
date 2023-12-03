@@ -231,6 +231,32 @@ tr {
     text-align: left;
     font-size: 1rem;
 }
+    #movetop {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none;
+        border-radius: 50%;
+        padding: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    #movetop:hover {
+        background-color: #0056b3; /* Hover background color */
+        color: #fff; /* Hover text color */
+    }
+
+    .fa-arrow-up {
+        font-size: 20px;
+    }
+</style>
+
 </style>
 </head>
 <body>
@@ -434,7 +460,29 @@ tr {
         %>
     
     </div>
-    
+    			<button onclick="topFunction()" id="movetop" title="Go to top">
+        <span class="fa fa-arrow-up" aria-hidden="true"></span>
+    </button>
+			<script>
+				// When the user scrolls down 20px from the top of the document, show the button
+				window.onscroll = function () {
+					scrollFunction()
+				};
+
+				function scrollFunction() {
+					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+						document.getElementById("movetop").style.display = "block";
+					} else {
+						document.getElementById("movetop").style.display = "none";
+					}
+				}
+
+				// When the user clicks on the button, scroll to the top of the document
+				function topFunction() {
+					document.body.scrollTop = 0;
+					document.documentElement.scrollTop = 0;
+				}
+			</script>
     <%@ include file="footer.html"%>
     
 </body>

@@ -67,7 +67,7 @@ public class MovieServlet extends HttpServlet {
         
 	
 		 String uploadPath =
-				"C:/Users/pssim/git/MovieTicketReservationSystem/MovieTicketReservationSystem/src/main/webapp/images/"
+				"C:/Users/Pravalika/git/MovieTicketReservationSystem/MovieTicketReservationSystem/src/main/webapp/images/"
 				 		 + imageFileName;
         
 		/* String uploadPath =request.getRealPath("images"); */
@@ -89,10 +89,10 @@ public class MovieServlet extends HttpServlet {
         PreparedStatement pstmt = null;
         String insertQuery = "INSERT INTO movies (theaterId, movie_name, director, releasedate, casts, description, poster, duration, trailerlink, genre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        int theaterId = 1; // Replace with your theater ID or get it from the request
+        int theaterId = 1; 
         String movieName = request.getParameter("movieName");
         String director = request.getParameter("director");
-        String releasedate = request.getParameter("releasedate"); // Make sure to retrieve this from your form
+        String releasedate = request.getParameter("releasedate"); 
         String casts = request.getParameter("casts");
         String description = request.getParameter("description");
         String duration = request.getParameter("duration");
