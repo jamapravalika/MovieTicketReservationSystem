@@ -25,7 +25,15 @@
 <body>
 
 <%@ include file="aHeader.jsp" %>
-    <h1>Edit Movie</h1>
+<br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/viewmovies">View Movies</a></li>
+    			<li class="breadcrumb-item"><a href="addShowtiming.jsp">Edit Movie</a></li>
+  			</ol>
+		</nav>
+    
 <div class="container" style="max-width: 660px; margin-top: 5%;">
     <form action="Update_movieServlet" method="post">
         <% 

@@ -48,11 +48,15 @@ body {
 <body>
 	<!-- header -->
 	 <%@ include file="aHeader.jsp" %>
+<br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/viewmovies">View Movies</a></li>
+  			</ol>
+		</nav>
 
-
-	<h1>List of Movies</h1>
-
-	<table class="table" style="max-width: 94%; margin: auto; margin-top: 5%;">
+	<table class="table" style="max-width: 94%; margin: auto; margin-top: 1%;">
 		<thead class="table">
 			<tr class="table-danger">
 				<th scope="col">Movie Name</th>

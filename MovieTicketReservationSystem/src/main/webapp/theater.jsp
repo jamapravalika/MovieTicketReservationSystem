@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css"> 
+   <!--  <link rel="stylesheet" type="text/css" href="style.css">  -->
     <link rel="stylesheet" href="assets/css/adminHeader.css">
     <link rel="stylesheet" type="text/css" href="AddMovies.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -22,8 +22,15 @@
 </head>
 <body>
  <%@ include file="aHeader.jsp" %>
-    <section id="theaters">
-        <h2>Theaters</h2>
+    
+    <br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href=#>Add Theater</a></li>
+  			</ol>
+		</nav>
+		<section id="theaters">
         <a>
         <div class="container" style="max-width: 660px;">
             <h2>Theaters Management</h2>

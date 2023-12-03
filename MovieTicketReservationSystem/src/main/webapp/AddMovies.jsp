@@ -28,10 +28,16 @@
 
 <body>
     <%@ include file="aHeader.jsp" %>
-
+    
+<br><br><br>
     <section id="movies">
-        <h2>Movies</h2>
-        <div class="container" style="max-width: 660px; margin-top: 5%;">
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="AddMovie.jsp">Add Movie</a></li>
+  			</ol>
+		</nav>
+        <div class="container" style="max-width: 660px; margin-top: 1%;">
             <h2 style="text-align: center; padding: 0">Add Movie</h2>
             <br></br>
             <!-- Add Movie Form -->

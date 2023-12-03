@@ -15,7 +15,14 @@
 </head>
 <body>
 <%@ include file="aHeader.jsp"%>
-<div class="container" style="margin-top:5%">
+<br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/Booking">View Bookings</a></li>
+  			</ol>
+		</nav>
+<div class="container" style="margin-top:1%">
     <h1>Booked Movie Tickets</h1>
     <table class="table table-hover">
         <tr>

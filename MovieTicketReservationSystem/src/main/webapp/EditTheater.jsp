@@ -26,6 +26,14 @@
 <body>
 
 <%@ include file="aHeader.jsp" %>
+<br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/viewTheater">View Theaters</a></li>
+    			<li class="breadcrumb-item"><a href=#>Edit Theaters</a></li>
+  			</ol>
+		</nav>
     <h1>Edit theater</h1>
 <div class="container" style="max-width: 660px; margin-top: 5%;">
             

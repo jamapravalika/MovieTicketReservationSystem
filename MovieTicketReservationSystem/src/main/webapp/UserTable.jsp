@@ -47,10 +47,15 @@
 <body>
     <!-- header -->
 <%@ include file="aHeader.jsp" %>
-
-    <h1>List of Users</h1>
+<br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/UserTable">View Users List</a></li>
+  			</ol>
+		</nav>
     <div>
-        <table class="table" style="max-width: 80%;margin: auto; margin-top: 5%;">
+        <table class="table" style="max-width: 80%;margin: auto; margin-top: 1%;">
             <thead class="table">
                 <tr class="table-danger">
                     <th scope="col">User Name</th>
@@ -58,7 +63,7 @@
                     <th scope="col">User Mobile</th>
                     <th scope="col">Role</th>
                     <th scope="col">Created At</th>
-                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Action</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -72,10 +77,10 @@
                             <td><%= user.getRole() %></td>
                             <td><%= user.getCreatedAt() %></td>
                             <!-- Action buttons -->
-                            <td>
+                            <!-- <td>
                                 <a href="EditUser.jsp"><button type="button" class="btn btn-success">Edit</button></a>
                                 <a href=""><button type="button" class="btn btn-danger">Delete</button></a>
-                            </td>
+                            </td> -->
                         </tr>
                 <% } 
                 } %>

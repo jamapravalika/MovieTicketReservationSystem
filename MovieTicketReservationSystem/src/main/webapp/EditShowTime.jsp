@@ -27,6 +27,14 @@
 <body>
 <%@ include file="aHeader.jsp" %>
         <section id="showtime">
+        <br><br><br>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/AddShowServlet">View Show Times</a></li>
+    			<li class="breadcrumb-item"><a href=#>Edit Show Times</a></li>
+  			</ol>
+		</nav>
         <div class="container" style="max-width: 660px; margin-top: 5%;">
         <h1>Edit Show Time</h1>
         <form action="EditShowServlet" method="post">

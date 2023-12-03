@@ -23,10 +23,16 @@
 </head>
 <body>
 <%@ include file="aHeader.jsp" %>
+<br><br><br>
     <section id="movies">
-        <h2>Show Timings</h2>
+        <nav aria-label="breadcrumb">
+  			<ol class="breadcrumb">
+    			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
+    			<li class="breadcrumb-item"><a href="addShowtiming.jsp">Add Show Times</a></li>
+  			</ol>
+		</nav>
         <a>
-            <div class="container" style="max-width: 660px; margin-top: 5%;">
+            <div class="container" style="max-width: 660px; margin-top: 1%;">
                 <h2 style="text-align: center; padding: 0">Add Show Timings</h2>
                 <br>
                 </br>

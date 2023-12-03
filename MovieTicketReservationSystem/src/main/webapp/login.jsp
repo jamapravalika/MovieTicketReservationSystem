@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="assets/css/login.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -40,10 +41,13 @@ function validateEmail(email) {
 </head>
 <body>
 <input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
+
 	<div class="main">
 		<section class="sign-in">
 			<div class="container">
+			
 				<div class="signin-content">
+				
 					<div class="signin-image">
 						<figure>
 							<img src="assets/images/cinema-clipart-transparent-background-7.png" alt="sing up image">
@@ -83,7 +87,7 @@ function validateEmail(email) {
 								<li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
 							</ul>
 						</div>
-						
+						<a href="index.jsp" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">GoBack</span> </a>
 					</div>
 				</div>
 			</div>

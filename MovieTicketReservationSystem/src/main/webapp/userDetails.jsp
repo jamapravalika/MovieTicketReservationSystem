@@ -12,7 +12,9 @@
 <body>
 
     <div class="container">
+    
         <h2>User Profile</h2>
+        
 <% List<users> userList = (List<users>) request.getAttribute("user");
                 if (userList != null) {
                     for (users user : userList) { %>
