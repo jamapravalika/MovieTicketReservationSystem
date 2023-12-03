@@ -54,7 +54,8 @@ body {
             <th scope="col">Theater Name</th>
             <th scope="col">address</th>
             <th scope="col">capacity</th>
-            <th scope="col">Action</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
         
         <% List<Theater> theaters = (List<Theater>) request.getAttribute("theaters");
@@ -65,8 +66,15 @@ body {
             <td><%= Theater.getAddress() %></td>
             <td><%= Theater.getCapacity() %></td>
             
-            <td><a href="EditMovie.jsp"><button type="button" class="btn btn-success">Edit</button></a><a href=""><button type="button" class="btn btn-danger">Delete</button></a></td>
-        </tr>
+            <td><a href="EditTheater.jsp?theaterId=<%= Theater.getTheater_Id() %>"><button type="button" class="btn btn-success">Edit</button></a>
+            </td><td>
+            <form action="DeleteTheater" method="post">
+    			<input type="hidden" name="theaterId" value="<%= Theater.getTheater_Id() %>">
+    			<button type="submit" class="btn btn-danger">Delete</button>
+			</form>
+			</td>
+            
+            </tr>
     <% } 
    
        }%>

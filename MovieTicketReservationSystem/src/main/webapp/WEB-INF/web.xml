@@ -179,6 +179,24 @@
   	<description></description>
   	<servlet-class>com.Servlets.Update_User</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EditTheaterServlet</servlet-name>
+  	<display-name>EditTheaterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.EditTheaterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteTheater</servlet-name>
+  	<display-name>DeleteTheater</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.DeleteTheater</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteBooking</servlet-name>
+  	<display-name>DeleteBooking</display-name>
+  	<description></description>
+  	<servlet-class>com.Servlets.DeleteBooking</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ForgotPassword</servlet-name>
   	<url-pattern>/forgotPassword</url-pattern>
@@ -295,6 +313,18 @@
     <servlet-mapping>
     	<servlet-name>Update_User</servlet-name>
     	<url-pattern>/edituser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>EditTheaterServlet</servlet-name>
+    	<url-pattern>/EditTheaterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>DeleteTheater</servlet-name>
+    	<url-pattern>/DeleteTheater</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>DeleteBooking</servlet-name>
+    	<url-pattern>/DeleteBooking</url-pattern>
     </servlet-mapping>
   
   

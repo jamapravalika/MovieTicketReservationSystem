@@ -386,7 +386,7 @@ tr {
                                                             </div>
                                                             <div class="times">
                                                                 <% 
-                                                                    List<ShowTimes> showList = (List<ShowTimes>) request.getAttribute("showList");
+                                                                    List<ShowTimes> showList = (List<ShowTimes>) request.getAttribute("showtime");
                                                                     if (showList != null && !showList.isEmpty()) { 
                                                                         for (ShowTimes showtime : showList) { %>
                                                                             <div style="margin-left: 2%">

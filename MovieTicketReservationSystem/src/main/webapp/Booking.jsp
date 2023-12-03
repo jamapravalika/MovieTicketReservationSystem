@@ -20,6 +20,7 @@
     <table class="table table-hover">
         <tr>
         	<th></th>
+        	<th>Booking Id</th>
             <th>User Email</th>
             <th>Movie Name</th>
             <th>Theater Name</th>
@@ -32,7 +33,7 @@
         <% for (Bookings booking : (List<Bookings>) request.getAttribute("bookings")) { %>
             <tr>
             	<td><img src="images/<%= booking.getMoviePoster() %>" alt="" style="width: 80px; height: 100px;"></td>
-                <td><%= booking.getBookingId() %></td>
+                <td>96789<%= booking.getBookingId() %></td>
                 <td><%= booking.getUseremail() %></td>
                 
                 <td><%= booking.getMovieName() %></td>

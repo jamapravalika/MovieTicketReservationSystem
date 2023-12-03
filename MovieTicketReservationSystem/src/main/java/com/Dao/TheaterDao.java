@@ -19,7 +19,8 @@ public class TheaterDao implements TheaterDaoIntrf {
 		private static final String Insert_QUERY = "Insert into Theater (TheatrName,address,capacity) values(?,?,?)";
 	
 		private static final String Delete_QUERY ="DELETE FROM Theater WHERE theaterId = ?";
-		private static final String updateSql = "UPDATE theaters SET theater_name = ?, location = ? WHERE theater_id = ?";
+		private static final String updateSql = "UPDATE Theater SET TheatrName = ?, address = ?, capacity=? WHERE theaterId = ?";
+		 private static final String SELECT_BY_ID_QUERY = "SELECT * FROM Theater WHERE theaterId = ?";
 		
 		Connection con=DbConnection.getConnection();
 		
@@ -52,49 +53,43 @@ public class TheaterDao implements TheaterDaoIntrf {
 
 		@Override
 		public void editTheater(Theater theater) {
-			// TODO Auto-generated method stub
-			try  {
-	            // Create the SQL update statement
-	           
-	            
-	            // Create a prepared statement
-	            PreparedStatement preparedStatement = con.prepareStatement(updateSql);
+		    try  {
+		        PreparedStatement preparedStatement = con.prepareStatement(updateSql);
 
-	            // Set the new values for theater_name and location
-	            preparedStatement.setInt(1, thea.getTheater_Id());
-	            preparedStatement.setString(2, thea.getTheater_Name());
-	            preparedStatement.setString(3, thea.getAddress());
-	            
-	            // Set the theater_id for the WHERE clause
-	            preparedStatement.setInt(4, thea.getCapacity());
-	            preparedStatement.executeUpdate();
-	            
-	            
-			}
-			catch (SQLException e) {
-	            e.printStackTrace();
-	        } 
-			
+		        preparedStatement.setString(1, theater.getTheater_Name());
+		        preparedStatement.setString(2, theater.getAddress());
+		        preparedStatement.setInt(3, theater.getCapacity());
+		        preparedStatement.setInt(4, theater.getTheater_Id()); // Assuming theater_id is the fourth parameter in your SQL query
+
+		        int rowsUpdated = preparedStatement.executeUpdate();
+
+		        if (rowsUpdated > 0) {
+		            System.out.println("Theater updated successfully.");
+		        } else {
+		            System.out.println("No theaters were updated.");
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
 		}
 
 		@Override
 		public void removeTheater(int id) {
-			Connection conn = DbConnection.getConnection();
 	        try {
-	        	thea=new Theater();
-	            PreparedStatement pstm = conn.prepareStatement(Delete_QUERY);
-	            pstm.setInt(1, thea.getTheater_Id());
+	            PreparedStatement pstm = con.prepareStatement(Delete_QUERY);
+	            pstm.setInt(1, id);
 	            int cnt = pstm.executeUpdate();
+
 	            if (cnt != 0) {
-	                System.out.println("Deleted Successfully!!! " + thea.getTheater_Id());
+	                System.out.println("Deleted Successfully!!! " + id);
+	            } else {
+	                System.out.println("No records deleted for theaterId: " + id);
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	        } finally {
-	            System.out.println("Finally Block");
 	        }
-			
-		}
+	    }
+
 		@Override
 		public List<Theater> displayTheaterdetails() {
 		    List<Theater> theater = new ArrayList<Theater>();
@@ -122,4 +117,26 @@ public class TheaterDao implements TheaterDaoIntrf {
 
 		    return theater;
 		}
+		
+		@Override
+	    public Theater getTheaterById(int theaterId) {
+	        Theater theater = null;
+	        try {
+	            PreparedStatement pstmt = con.prepareStatement(SELECT_BY_ID_QUERY);
+	            pstmt.setInt(1, theaterId);
+	            ResultSet result = pstmt.executeQuery();
+
+	            if (result.next()) {
+	                theater = new Theater();
+	                theater.setTheater_Id(result.getInt("theaterId"));
+	                theater.setTheater_Name(result.getString("TheatrName"));
+	                theater.setAddress(result.getString("address"));
+	                theater.setCapacity(result.getInt("capacity"));
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return theater;
+	    }
+		
 }

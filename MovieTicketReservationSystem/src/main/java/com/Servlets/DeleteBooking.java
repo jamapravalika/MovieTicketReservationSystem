@@ -6,18 +6,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Dao.MovieDao;
+import com.Dao.BookingDAO;
 
 /**
- * Servlet implementation class DeleteMovieServlet
+ * Servlet implementation class DeleteBooking
  */
-public class DeleteMovieServlet extends HttpServlet {
+public class DeleteBooking extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteMovieServlet() {
+    public DeleteBooking() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,20 +35,18 @@ public class DeleteMovieServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.print("delete");
-		String movieid =request.getParameter("movieId");
-		Integer movid=Integer.parseInt(movieid);
-		
-		System.out.print(movid);
-		try {
-		MovieDao movieDao = new MovieDao();
-		movieDao.DeleteMovies(movid);
-		response.sendRedirect(request.getContextPath() + "/viewmovies");
-	 } catch (Exception e) {
-         e.printStackTrace();
-         response.sendRedirect("Error.jsp");
-     }
- }
-	
+		String bookingIdString = request.getParameter("bookingId");
+
+        if (bookingIdString != null && !bookingIdString.isEmpty()) {
+            int bookingId = Integer.parseInt(bookingIdString);
+
+            BookingDAO bookingDAO = new BookingDAO();
+            bookingDAO.deleteBooking(bookingId);
+
+            response.sendRedirect(request.getContextPath() + "/UserBookings");
+        } else {
+            response.getWriter().println("Invalid or missing bookingId parameter.");
+        }
+	}
 
 }

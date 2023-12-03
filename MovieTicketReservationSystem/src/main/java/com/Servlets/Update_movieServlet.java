@@ -67,7 +67,7 @@ public class Update_movieServlet extends HttpServlet {
         boolean success = movieDao.UpadateMovies(updatedMovie);
 
         if (success) {
-            response.sendRedirect("/MovieTicketReservationSystem/viewmovies");
+            response.sendRedirect(request.getContextPath() + "/viewmovies");
         } else {
             response.sendRedirect("Error.jsp");
         }

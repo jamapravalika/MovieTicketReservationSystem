@@ -13,4 +13,6 @@ public interface TheaterDaoIntrf {
 	public void removeTheater(int id);
 	
 	public List<Theater> displayTheaterdetails();
+	
+	public Theater getTheaterById(int theaterId);
 }

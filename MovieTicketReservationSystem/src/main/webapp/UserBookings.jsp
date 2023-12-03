@@ -27,8 +27,14 @@
             <th></th>
         </tr>
         <% SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss"); %>
-        <% for (Bookings booking : (List<Bookings>) request.getAttribute("bookings")) { %>
-            <tr>
+        
+        <% 
+                List<Bookings> bookingsList = (List<Bookings>) request.getAttribute("bookings");
+                for (int i = bookingsList.size() - 1; i >= 0; i--) {
+                    Bookings booking = bookingsList.get(i);
+            %>
+        
+			<tr>
             	<td><img src="images/<%= booking.getMoviePoster() %>" alt="" style="width: 80px; height: 100px;"></td>
                 <td><%= booking.getMovieName() %></td>
                 <td><%= booking.getTheaterName() %></td>
@@ -36,6 +42,16 @@
                 <td><%= booking.getQuantity() %></td>
                 <td><%= booking.getTotalPrice() %></td>
                 <td><%= booking.getBookingDate() %></td>
+            	<td>
+                    <% if (i == bookingsList.size() - 1) { %>
+                    	<form action="DeleteBooking" method="post">
+    						<input type="hidden" name="bookingId" value="<%= booking.getBookingId() %>">
+    						<button type="submit" class="btn btn-danger">Cancel Booking</button>
+						</form>
+                       <%--  <a href="DeleteBooking?bookingId=<%= booking.getBookingId() %>">Delete</a> --%>
+                    <% } %>
+                </td>
+            
             </tr>
         <% } %>
     </table>

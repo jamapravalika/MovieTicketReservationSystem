@@ -37,7 +37,7 @@
                 } %>
         <div class="logout-btn">
             <a href="registration.jsp"><button>Add Another Account</button></a>
-            <a href="/MovieTicketReservationSystem/edituser"><button>Edit Profile</button></a>
+            <a href="/MovieTicketReservation/edituser"><button>Edit Profile</button></a>
         </div>
     </div>
 </body>

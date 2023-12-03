@@ -136,7 +136,7 @@ public class MovieServlet extends HttpServlet {
             }
         }
 
-        response.sendRedirect("/MovieTicketReservationSystem/viewmovies");
+        response.sendRedirect(request.getContextPath() + "/viewmovies");
     }
     
     private String getSubmittedFileName(Part part) {

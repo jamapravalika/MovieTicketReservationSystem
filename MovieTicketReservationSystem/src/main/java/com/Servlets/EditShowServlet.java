@@ -77,8 +77,6 @@ public class EditShowServlet extends HttpServlet {
 
 	        response.sendRedirect(request.getContextPath() + "/viewshowtime.jsp");
 	    } else {
-	        // Handle the case where parameters are null (e.g., show an error message)
-	        // You might want to redirect to an error page or display a message on EditShowTime.jsp
 	    	response.sendRedirect(request.getContextPath() + "/Error.jsp");
 	    }
 	}

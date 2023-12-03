@@ -41,10 +41,10 @@ public class Update_User extends HttpServlet {
                 request.setAttribute("user", user);
                 request.getRequestDispatcher("/edituser.jsp").forward(request, response);
             } else {
-                response.sendRedirect("/MovieTicketReservationSystem/Error.jsp");
+                response.sendRedirect(request.getContextPath() + "/Error.jsp");
             }
         } else {
-            response.sendRedirect("/MovieTicketReservationSystem/Error.jsp");
+            response.sendRedirect(request.getContextPath() + "/Error.jsp");
         }
 	}
 
@@ -73,16 +73,16 @@ public class Update_User extends HttpServlet {
 		        boolean isUpdateSuccessful = userProfileDao.updateUserProfile(updatedUser);
 
 		        if (isUpdateSuccessful) {
-		            response.sendRedirect("/MovieTicketReservationSystem/userDetails");
+		            response.sendRedirect(request.getContextPath() + "/userDetails");
 		        } else {
 		            response.sendRedirect("error.jsp");
 		        }
 		    } else {
-		        response.sendRedirect("/MovieTicketReservationSystem/Error.jsp");
+		        response.sendRedirect(request.getContextPath() + "/Error.jsp");
 		    }
 		} catch (Exception e) {
 		    e.printStackTrace();
-		    response.sendRedirect("error.jsp");
+		    response.sendRedirect("Error.jsp");
 		}
 	}
 
