@@ -103,11 +103,4 @@ public class Bookings extends Movie{
 				+ TotalPrice + ", BookingDate=" + BookingDate + ", MoviePoster=" + MoviePoster + ", confirmed="
 				+ confirmed + "]";
 	}
-	
-	
-	
 }
-	
-
-	
-
