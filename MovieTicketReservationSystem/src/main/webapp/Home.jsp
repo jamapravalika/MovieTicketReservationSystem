@@ -185,7 +185,7 @@
 <div class="container-fluid">
     <div class="show">
     <h1>Popular Movies</h1>
-    <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%; color:#fff;">Show All</h6></a></div>
+    <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%;">Show All</h6></a></div>
     
     <div class="row" id = "con">
         <div class="col-6 col-md-3">
@@ -345,7 +345,7 @@
           
     <div class="show">
         <h1 style="margin-bottom: 2%;">New Releases</h1>
-       <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%; color:#fff;">Show All</h6></a></div>
+        <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%;">Show All</h6></a></div>
     <div class="row" id="con">  
         <div class="col-6 col-md-3">
             <img src="assets/images/n2.jpg" alt="Mulan">
