@@ -185,7 +185,8 @@
 <div class="container-fluid">
     <div class="show">
     <h1>Popular Movies</h1>
-    <h6 style="margin-right: 5%;">Show All</h6></div>
+    <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%; color:#fff;">Show All</h6></a></div>
+    
     <div class="row" id = "con">
         <div class="col-6 col-md-3">
                 <img src="assets/images/the-equalizer.webp" alt="Equalizer">
@@ -244,7 +245,8 @@
     <div class="container-fluid" style="background-color: rgb(43, 49, 72);">
     <div class="show" style="color:#fff;padding-top: 2%; margin-bottom:2%;">
     <h1>Upcoming Movies</h1>
-    <h6 style="margin-right: 5%;">Show All</h6></div>
+    <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%; color:#fff;">Show All</h6></a></div>
+    
     <section class="cards">
    
         <article class="card card--1">
@@ -343,7 +345,7 @@
           
     <div class="show">
         <h1 style="margin-bottom: 2%;">New Releases</h1>
-        <h6 style="margin-right: 5%;">Show All</h6></div>
+       <a href="/MovieTicketReservation/moviepage"><h6 style="margin-right: 5%; color:#fff;">Show All</h6></a></div>
     <div class="row" id="con">  
         <div class="col-6 col-md-3">
             <img src="assets/images/n2.jpg" alt="Mulan">
