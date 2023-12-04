@@ -30,7 +30,7 @@
         <nav aria-label="breadcrumb">
   			<ol class="breadcrumb">
     			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
-    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/viewTheater">View Theaters</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservationSystem/viewTheater">View Theaters</a></li>
     			<li class="breadcrumb-item"><a href=#>Edit Theaters</a></li>
   			</ol>
 		</nav>

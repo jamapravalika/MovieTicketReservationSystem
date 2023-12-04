@@ -31,7 +31,7 @@
         <nav aria-label="breadcrumb">
   			<ol class="breadcrumb">
     			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
-    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/AddShowServlet">View Show Times</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservationSystem/AddShowServlet">View Show Times</a></li>
     			<li class="breadcrumb-item"><a href=#>Edit Show Times</a></li>
   			</ol>
 		</nav>

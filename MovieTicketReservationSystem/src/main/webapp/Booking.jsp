@@ -19,7 +19,7 @@
         <nav aria-label="breadcrumb">
   			<ol class="breadcrumb">
     			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
-    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/Booking">View Bookings</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservationSystem/Booking">View Bookings</a></li>
   			</ol>
 		</nav>
 <div class="container" style="margin-top:1%">

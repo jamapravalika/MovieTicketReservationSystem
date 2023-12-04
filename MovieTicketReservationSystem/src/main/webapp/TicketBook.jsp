@@ -84,7 +84,7 @@
                     <span> <span class="count">0</span> Tickets </span>
                     <div class="amount">0</div>
                 </div>
-                <a href="/MovieTicketReservation/ticket"><button type="submit">Book</button></a>
+                <a href="/MovieTicketReservationSystem/ticket"><button type="submit">Book</button></a>
             </div>
         </form>
       </div>

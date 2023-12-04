@@ -95,7 +95,7 @@
                     <button type="button" class="more-menu-btn" role="menuitem">Copy</button>
                 </li> -->
                 <li class="more-menu-item" role="presentation">
-                	<a href="/MovieTicketReservation/ticket?bookingId=<%= booking.getBookingId() %>" class="more-menu-btn" role="menuitem">View Ticket</a>
+                	<a href="/MovieTicketReservationSystem/ticket?bookingId=<%= booking.getBookingId() %>" class="more-menu-btn" role="menuitem">View Ticket</a>
                     <!-- <button type="button" class="more-menu-btn" role="menuitem">View Ticket</button> -->
                 </li>
                 

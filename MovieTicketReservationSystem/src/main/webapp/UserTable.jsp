@@ -51,7 +51,7 @@
         <nav aria-label="breadcrumb">
   			<ol class="breadcrumb">
     			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
-    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/UserTable">View Users List</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservationSystem/UserTable">View Users List</a></li>
   			</ol>
 		</nav>
     <div>

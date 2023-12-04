@@ -25,7 +25,7 @@
           <a class="nav-link" href="Home.jsp"><i class="fas fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/MovieTicketReservation/moviepage"><i class="fa-solid fa-video"></i> Movies</a>
+          <a class="nav-link" href="/MovieTicketReservationSystem/moviepage"><i class="fa-solid fa-video"></i> Movies</a>
         </li>
        <!--  <li class="nav-item">
           <a class="nav-link" href="Movies.jsp"><i class="fa-solid fa-video"></i> Movies</a>
@@ -41,8 +41,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="fas fa-user"></i> Account</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/MovieTicketReservation/userDetails">Account</a></li>
-            <li><a class="dropdown-item" href="/MovieTicketReservation/UserBookings">History</a></li>
+            <li><a class="dropdown-item" href="/MovieTicketReservationSystem/userDetails">Account</a></li>
+            <li><a class="dropdown-item" href="/MovieTicketReservationSystem/UserBookings">History</a></li>
             <li><a class="dropdown-item" href="login.jsp">Logout</a></li>
           </ul>
         </li>

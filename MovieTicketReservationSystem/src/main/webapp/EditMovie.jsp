@@ -29,7 +29,7 @@
         <nav aria-label="breadcrumb">
   			<ol class="breadcrumb">
     			<li class="breadcrumb-item"><a href="adminHome.jsp">Home</a></li>
-    			<li class="breadcrumb-item"><a href="/MovieTicketReservation/viewmovies">View Movies</a></li>
+    			<li class="breadcrumb-item"><a href="/MovieTicketReservationSystem/viewmovies">View Movies</a></li>
     			<li class="breadcrumb-item"><a href="addShowtiming.jsp">Edit Movie</a></li>
   			</ol>
 		</nav>

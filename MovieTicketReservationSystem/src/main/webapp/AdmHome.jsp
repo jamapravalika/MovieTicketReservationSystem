@@ -54,16 +54,16 @@
         <li><a href="AddMovies.jsp"><i class="fa fa-film"></i> Add Movies</a></li>
         <li><a href="theater.jsp"><i class="fa fa-building"></i> Theaters</a></li>
         <li><a href="addShowtiming.jsp"><i class="fa fa-building"></i> Show Timings</a></li>
-        <li><a href="/MovieTicketReservation/UserTable"><i class="fa fa-users"></i> Users</a></li>
+        <li><a href="/MovieTicketReservationSystem/UserTable"><i class="fa fa-users"></i> Users</a></li>
          <li class="nav-item dropdown">
         <div class="dropdown">
   			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     		View
   		</button>
   		<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    		<a href="/MovieTicketReservation/viewmovies"><button class="dropdown-item" type="button">Movies</button></a>
-    		<a href="/MovieTicketReservation/viewTheater"><button class="dropdown-item" type="button">Theaters</button></a>
-    		<a href="/MovieTicketReservation/viewshowtime"><button class="dropdown-item" type="button">Show Timings</button></a>
+    		<a href="/MovieTicketReservationSystem/viewmovies"><button class="dropdown-item" type="button">Movies</button></a>
+    		<a href="/MovieTicketReservationSystem/viewTheater"><button class="dropdown-item" type="button">Theaters</button></a>
+    		<a href="/MovieTicketReservationSystem/viewshowtime"><button class="dropdown-item" type="button">Show Timings</button></a>
   		</div>
 		</div>
 		</li>
