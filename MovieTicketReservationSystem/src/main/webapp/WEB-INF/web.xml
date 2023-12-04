@@ -197,6 +197,18 @@
   	<description></description>
   	<servlet-class>com.Servlets.DeleteBooking</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminReg</servlet-name>
+  	<display-name>AdminReg</display-name>
+  	<description></description>
+  	<servlet-class>com.loginRegistration.AdminReg</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminLogin</servlet-name>
+  	<display-name>AdminLogin</display-name>
+  	<description></description>
+  	<servlet-class>com.loginRegistration.AdminLogin</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ForgotPassword</servlet-name>
   	<url-pattern>/forgotPassword</url-pattern>
@@ -325,6 +337,14 @@
     <servlet-mapping>
     	<servlet-name>DeleteBooking</servlet-name>
     	<url-pattern>/DeleteBooking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>AdminReg</servlet-name>
+    	<url-pattern>/AdminReg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>AdminLogin</servlet-name>
+    	<url-pattern>/AdminLogin</url-pattern>
     </servlet-mapping>
   
   

@@ -30,7 +30,7 @@
         document.getElementById("bookButton").addEventListener("click", function () {
             var role = document.getElementById("role").value;
             if (role === "admin") {
-                window.location.href = "adminHome.jsp"; 
+                window.location.href = "AdminLogin.jsp"; 
             } else if (role === "user") {
                 window.location.href = "login.jsp"; 
             }
