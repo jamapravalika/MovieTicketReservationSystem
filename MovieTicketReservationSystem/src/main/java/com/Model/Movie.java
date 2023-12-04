@@ -1,8 +1,6 @@
 package com.Model;
 
 import java.util.Date;
-import java.sql.Blob;
-import java.util.Arrays;
 
 public class Movie {
 	private int movie_Id;
@@ -124,7 +122,4 @@ public Movie(int movie_Id, int theater_Id, String movie_Name, String movie_Direc
 				+ ", movie_Duration=" + movie_Duration + ", trailerlink=" + trailerlink + ", genre=" + genre
 				+ ", theater=" + theater + "]";
 	}
-	
-	
-	
 }
