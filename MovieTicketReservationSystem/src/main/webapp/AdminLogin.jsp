@@ -6,13 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Login</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-iconic-font@2.2.0/dist/css/material-design-iconic-font.min.css">
-
 <link rel="stylesheet" href="assets/css/login.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+
+<link rel="stylesheet" href="assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
-
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -37,6 +38,16 @@ function validateEmail(email) {
 
 
 </script>
+<style>
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 940px;
+  }
+}
+.zmdi {
+  display: flex;
+}
+</style>
 </head>
 <body>
 <input type="hidden" id="status" value="<%= request.getAttribute("status") %>">

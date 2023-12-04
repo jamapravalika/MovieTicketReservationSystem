@@ -8,10 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Booked Movie Tickets</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bookings.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <style>
     #movetop {
         display: none;
@@ -74,8 +75,38 @@
             <td><%= booking.getBookingDate() %></td>
             <td>
                 <% if (i == bookingsList.size() - 1) { %>
-                    <!-- Trigger Bootstrap modal -->
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">&#8942;</button>
+                    <div class="more">
+        <button id="more-btn" class="more-btn">
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+            <span class="more-dot"></span>
+        </button>
+        <div class="more-menu">
+            <div class="more-menu-caret">
+                <div class="more-menu-caret-outer"></div>
+                <div class="more-menu-caret-inner"></div>
+            </div>
+            <ul class="more-menu-items" tabindex="-1" role="menu" aria-labelledby="more-btn" aria-hidden="true">
+                <!-- <li class="more-menu-item" role="presentation">
+    				<button type="button" class="more-menu-btn" role="menuitem" data-target="#exampleModalCenter">Share</button>
+				</li>
+
+                <li class="more-menu-item" role="presentation">
+                    <button type="button" class="more-menu-btn" role="menuitem">Copy</button>
+                </li> -->
+                <li class="more-menu-item" role="presentation">
+                	<a href="/MovieTicketReservation/ticket?bookingId=<%= booking.getBookingId() %>" class="more-menu-btn" role="menuitem">View Ticket</a>
+                    <!-- <button type="button" class="more-menu-btn" role="menuitem">View Ticket</button> -->
+                </li>
+                
+                <li class="more-menu-item" role="presentation">
+                    <button type="button" class="more-menu-btn" data-toggle="modal" data-target="#exampleModalCenter" role="menuitem">Cancel</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+						
+                    <!-- <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">&#8942;</button> -->
 
                     <!-- Bootstrap modal -->
                     <div id="exampleModalCenter" class="modal fade" role="dialog">
@@ -83,7 +114,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Confirmation</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <button type="button" class="close" data-dismiss="modastl">&times;</button>
                                 </div>
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <form action="DeleteBooking" method="post">
@@ -105,25 +136,63 @@
         <span class="fa fa-arrow-up" aria-hidden="true"></span>
     </button>
 			<script>
-				
-				window.onscroll = function () {
-					scrollFunction()
-				};
+    window.onscroll = function () {
+        scrollFunction();
+    };
 
-				function scrollFunction() {
-					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-						document.getElementById("movetop").style.display = "block";
-					} else {
-						document.getElementById("movetop").style.display = "none";
-					}
-				}
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
 
-				
-				function topFunction() {
-					document.body.scrollTop = 0;
-					document.documentElement.scrollTop = 0;
-				}
-			</script>
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    var el = document.querySelector('.more');
+    var btn = el.querySelector('.more-btn');
+    var menu = el.querySelector('.more-menu');
+    var visible = false;
+
+    function showMenu(e) {
+        e.preventDefault();
+        if (!visible) {
+            visible = true;
+            el.classList.add('show-more-menu');
+            menu.setAttribute('aria-hidden', false);
+            document.addEventListener('mousedown', hideMenu, false);
+        }
+    }
+
+    function hideMenu(e) {
+        if (btn.contains(e.target) || menu.contains(e.target)) {
+            return;
+        }
+        if (visible) {
+            visible = false;
+            el.classList.remove('show-more-menu');
+            menu.setAttribute('aria-hidden', true);
+            document.removeEventListener('mousedown', hideMenu);
+        }
+    }
+
+    btn.addEventListener('click', showMenu, false);
+
+    var modalButtons = document.querySelectorAll('.more-menu-btn');
+    modalButtons.forEach(function (modalButton) {
+        modalButton.addEventListener('click', function () {
+            var modalId = this.getAttribute('data-target');
+            $(modalId).modal('show');
+            hideMenu();
+        });
+    });
+
+</script>
+
 <%@ include file="footer.html"%>
 </body>
 </html>
