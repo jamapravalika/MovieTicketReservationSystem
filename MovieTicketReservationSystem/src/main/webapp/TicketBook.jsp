@@ -36,40 +36,41 @@
           </div>
           <div class="timings">
             <div class="dates">
+            
               <input type="radio" name="date" id="d1" checked />
               <label for="d1" class="dates-item">
-                <div class="day">Sun</div>
-                <div class="date">5</div>
+                <div class="day">Sat</div>
+                <div class="date">10</div>
               </label>
               <input type="radio" id="d2" name="date" />
               <label class="dates-item" for="d2">
-                <div class="day">Mon</div>
-                <div class="date">6</div>
+                <div class="day">Sun</div>
+                <div class="date">11</div>
               </label>
               <input type="radio" id="d3" name="date" />
               <label class="dates-item" for="d3">
-                <div class="day">Tue</div>
-                <div class="date">7</div>
+                <div class="day">Mon</div>
+                <div class="date">12</div>
               </label>
               <input type="radio" id="d4" name="date" />
               <label class="dates-item" for="d4">
-                <div class="day">Wed</div>
-                <div class="date">8</div>
+                <div class="day">Tue</div>
+                <div class="date">13</div>
               </label>
               <input type="radio" id="d5" name="date" />
               <label class="dates-item" for="d5">
-                <div class="day">Thu</div>
-                <div class="date">9</div>
+                <div class="day">Wed</div>
+                <div class="date">14</div>
               </label>
               <input type="radio" id="d6" name="date" />
               <label class="dates-item" for="d6">
-                <div class="day">Fri</div>
-                <div class="date">10</div>
+                <div class="day">Thu</div>
+                <div class="date">15</div>
               </label>
               <input type="radio" id="d7" name="date" />
               <label class="dates-item" for="d7">
-                <div class="day">Sat</div>
-                <div class="date">11</div>
+                <div class="day">Fri</div>
+                <div class="date">16</div>
               </label>
             </div>
             

@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.Db.DbConnection;
+
 /**
  * Servlet implementation class NewPassword
  */
@@ -22,7 +24,7 @@ public class NewPassword extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("in pass post");
 		HttpSession session = request.getSession();
 		String newPassword = request.getParameter("password");
 		String confPassword = request.getParameter("confPassword");
@@ -30,9 +32,7 @@ public class NewPassword extends HttpServlet {
 		if (newPassword != null && confPassword != null && newPassword.equals(confPassword)) {
 
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/movieticket?useSSL=false", "root",
-						"root");
+				Connection con=DbConnection.getConnection();
 				PreparedStatement pst = con.prepareStatement("update users set upwd = ? where uemail = ? ");
 				pst.setString(1, newPassword);
 				pst.setString(2, (String) session.getAttribute("email"));
@@ -40,9 +40,11 @@ public class NewPassword extends HttpServlet {
 				int rowCount = pst.executeUpdate();
 				if (rowCount > 0) {
 					request.setAttribute("status", "resetSuccess");
+					System.out.println("resetSuccess");
 					dispatcher = request.getRequestDispatcher("login.jsp");
 				} else {
 					request.setAttribute("status", "resetFailed");
+					System.out.println("resetFailed");
 					dispatcher = request.getRequestDispatcher("login.jsp");
 				}
 				dispatcher.forward(request, response);

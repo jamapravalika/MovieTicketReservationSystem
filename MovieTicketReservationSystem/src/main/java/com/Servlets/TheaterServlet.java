@@ -35,26 +35,7 @@ public class TheaterServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * String action = request.getParameter("action");
-		 * 
-		 * 
-		 * if (action != null) { switch (action) { case "update": updateTheater(request,
-		 * response); break; case "delete": deleteTheater(request, response); break;
-		 * default: // Handle other cases if needed break; } } else { // Handle the case
-		 * where action is null // You might want to redirect to an error page or handle
-		 * it appropriately }
-		 * 
-		 */
-		  
-		/*
-		 * String theaterName = request.getParameter("theaterName"); String
-		 * theaterLocation = request.getParameter("theaterLocation"); int
-		 * seatingCapacity = Integer.parseInt(request.getParameter("seatingCapacity"));
-		 */
-		  
-		  
-		  
+
 		  TheaterDao theaterDao = new TheaterDao(); 
 		  List<Theater> thea = theaterDao.displayTheaterdetails();
 		  request.setAttribute("theaters", thea);
@@ -69,40 +50,8 @@ public class TheaterServlet extends HttpServlet {
 		PreparedStatement pstmt = null;
 	    Connection con = null;
 
-		/*
-		 * String action = request.getParameter("action");
-		 * 
-		 * switch (action) { case "update": updateTheater(request, response); break;
-		 * case "delete": deleteTheater(request, response); break; default: // Handle
-		 * other cases if needed break; }
-		 */
 System.out.println("in post");
-		/*
-		 * private void updateTheater(HttpServletRequest request, HttpServletResponse
-		 * response) throws ServletException, IOException { // Extract parameters from
-		 * the form int theaterId = Integer.parseInt(request.getParameter("theaterId"));
-		 * String theaterName = request.getParameter("theaterName"); String
-		 * theaterLocation = request.getParameter("theaterLocation"); int
-		 * seatingCapacity = Integer.parseInt(request.getParameter("seatingCapacity"));
-		 * 
-		 * TheaterDao theaterDao = new TheaterDao(); Theater theater = new
-		 * Theater(theaterId, theaterName, theaterLocation, seatingCapacity);
-		 * theaterDao.editTheater(theater);
-		 * 
-		 * response.sendRedirect("theater.jsp"); }
-		 * 
-		 * private void deleteTheater(HttpServletRequest request, HttpServletResponse
-		 * response) throws ServletException, IOException { int theaterId =
-		 * Integer.parseInt(request.getParameter("theaterId"));
-		 * 
-		 * TheaterDao theaterDao = new TheaterDao();
-		 * theaterDao.removeTheater(theaterId);
-		 * 
-		 * response.sendRedirect("theater.jsp"); }
-		 * 
-		 * private void addTheater(HttpServletRequest request, HttpServletResponse
-		 * response) throws ServletException, IOException {
-		 */
+
 		try {
 			con = DbConnection.getConnection();
 			String tName = request.getParameter("theaterName");

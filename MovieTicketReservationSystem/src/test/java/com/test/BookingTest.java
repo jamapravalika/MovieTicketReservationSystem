@@ -21,13 +21,10 @@ public class BookingTest {
 
     @Test
     public void testGetUserEmail() {
-        // Arrange
         booking.setUseremail("john.doe@example.com");
 
-        // Act
         String result = booking.getUseremail();
 
-        // Assert
         assertEquals("john.doe@example.com", result);
     }
 
