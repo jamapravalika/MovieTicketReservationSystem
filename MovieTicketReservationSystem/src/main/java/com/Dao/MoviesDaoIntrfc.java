@@ -11,4 +11,5 @@ public interface MoviesDaoIntrfc {
 	boolean DeleteMovies(int movieId);
 	public Movie getMovieById(int movieId);	
 	List<Movie> SearchMovies(String keyword);
+	public boolean isMovieExists(String movieName);
 }

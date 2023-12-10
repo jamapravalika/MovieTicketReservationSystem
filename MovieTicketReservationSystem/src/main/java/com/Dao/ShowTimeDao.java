@@ -47,10 +47,10 @@ public class ShowTimeDao implements ShowTimingIntrf{
 		
 		try(Connection connection = DbConnection.getConnection()) {
 			PreparedStatement statement = con.prepareStatement(updateQuery);
-            statement.setString(1, showtime.getMovie_name().getMovie_Name());
+            statement.setString(1, (showtime.getMovie_name() != null) ? showtime.getMovie_name().getMovie_Name() : null);
             statement.setTime(2, showtime.getStart_Time());
             statement.setTime(3, showtime.getEnd_Time());
-            statement.setInt(4, showtime.getTheater_id().getTheater_Id());
+            statement.setInt(4, (showtime.getTheater_id() != null) ? showtime.getTheater_id().getTheater_Id() : null);
             statement.setInt(5, showtime.getShowtime_Id());
             statement.executeUpdate();
             System.out.println("Connected successfully");
@@ -152,5 +152,58 @@ public class ShowTimeDao implements ShowTimingIntrf{
 	    }
 
 	    return showtime;
+    }
+	
+	@Override
+	public boolean isShowTimeExists(String movieName, Time startTime, Time endTime, int theaterId) {
+	    Connection conn = DbConnection.getConnection();
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+
+	    try {
+	        String query = "SELECT COUNT(*) FROM Showtimes WHERE movieName = ? AND startTime = ? AND endTime = ? AND theaterId = ?";
+	        pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, movieName);
+	        pstmt.setTime(2, startTime);
+	        pstmt.setTime(3, endTime);
+	        pstmt.setInt(4, theaterId);
+	        rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            int count = rs.getInt(1);
+	            return count > 0;
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	    	System.out.println("Finally Block");
+	    }
+
+	    return false;
+	}
+	
+	@Override
+	public boolean isTheaterExists(int theaterId) {
+        Connection conn = DbConnection.getConnection();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            String query = "SELECT COUNT(*) FROM Theaters WHERE theaterId = ?";
+            pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, theaterId);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+        	System.out.println("Finally Block");
+        }
+
+        return false;
     }
 }

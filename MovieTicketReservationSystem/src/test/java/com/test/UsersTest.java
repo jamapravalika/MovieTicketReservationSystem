@@ -2,84 +2,63 @@ package com.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.Dao.UserDao;
 import com.Model.users;
 
 public class UsersTest {
 	
-	private users user;
+	private UserDao userDao;
 
     @Before
     public void setUp() {
-        user = new users();
+        userDao = new UserDao();
     }
 
     @Test
-    public void testGetUserName() {
-        // Arrange
-        user.setUser_Name("JohnDoe");
+    public void testGetAllUsers() {
+        List<users> userList = userDao.getAllUsers();
 
-        // Act
-        String result = user.getUser_Name();
-
-        // Assert
-        assertEquals("JohnDoe", result);
+        assertNotNull(userList);
+        assertTrue(userList.size() > 0);
     }
 
     @Test
-    public void testGetUserEmail() {
-        // Arrange
-        user.setUser_Email("john.doe@example.com");
+    public void testGetUserById() {
+        int userId = 1;
+        List<users> userList = userDao.getUserById(userId);
 
-        // Act
-        String result = user.getUser_Email();
-
-        // Assert
-        assertEquals("john.doe@example.com", result);
+        assertNotNull(userList);
+        assertTrue(userList.size() > 0);
+        assertEquals(userId, userList.get(0).getUser_Id());
     }
 
     @Test
-    public void testGetUserPassword() {
-        // Arrange
-        user.setUser_Pwd("password123");
-
-        // Act
-        String result = user.getUser_Pwd();
-
-        // Assert
-        assertEquals("password123", result);
-    }
-
-    @Test
-    public void testGetUserMobile() {
-        // Arrange
+    public void testUpdateUserProfile() {
+        users user = new users();
+        user.setUser_Id(1);
+        user.setUser_Name("SarahSusan");
+        user.setUser_Email("pssarahsusan@gmail.com");
         user.setUser_Mobile(1234567890);
 
-        // Act
-        long result = user.getUser_Mobile();
+        boolean isUpdated = userDao.updateUserProfile(user);
 
-        // Assert
-        assertEquals(1234567890, result);
+        assertTrue(isUpdated);
+
+        // Verify the changes by fetching the updated user
+        List<users> updatedUserList = userDao.getUserById(user.getUser_Id());
+        assertEquals("SarahSusan", updatedUserList.get(0).getUser_Name());
+        assertEquals("pssarahsusan@gmail.com", updatedUserList.get(0).getUser_Email());
+        assertEquals(1234567890, updatedUserList.get(0).getUser_Mobile());
     }
-
-    @Test
-    public void testGetUserRole() {
-        // Arrange
-        user.setRole("users");
-
-        // Act
-        String result = user.getRole();
-
-        // Assert
-        assertEquals("users", result);
-    }
-
 
     @After
     public void tearDown() {
-        user = null;
+        userDao = null;
     }
 }

@@ -2,63 +2,86 @@ package com.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.Dao.TheaterDao;
 import com.Model.Theater;
 
 public class TheaterTest {
 	
-	private Theater theater;
+	private TheaterDao theaterDao;
 
-	@Before
-	public void setUp() {
-		theater = new Theater(); 
-	}
-
-	@Test
-	public void testGetTheaterName() {
-        // Arrange
-		theater = new Theater();
-		theater.setTheater_Name("AMB Cinemas");
-
-        // Act
-        String result = theater.getTheater_Name();
-
-        // Assert
-        assertEquals("AMB Cinemas", result);
+    @Before
+    public void setUp() {
+        theaterDao = new TheaterDao();
     }
-	
-	@Test
-	public void testGetAddress() {
-        // Arrange
-		theater = new Theater();
-		theater.setAddress("Gachibowli");
 
-        // Act
-        String result = theater.getAddress();
+    @Test
+    public void testAddTheater() {
+        Theater theater = new Theater();
+        theater.setTheater_Name("MovieMax");
+        theater.setAddress("AMR, ECIL Secunderabad");
+        theater.setCapacity(100);
 
-        // Assert
-        assertEquals("Gachibowli", result);
+        theaterDao.addTheater();
+
+        List<Theater> theaters = theaterDao.displayTheaterdetails();
+
+        assertNotNull(theaters);
+        assertTrue(theaters.size() > 0);
     }
-	
-	@Test
-	public void testGetCapacity() {
-        // Arrange
-		theater = new Theater();
-		theater.setCapacity(450);
 
-        // Act
-        int result = theater.getCapacity();
+    @Test
+    public void testEditTheater() {
+        Theater theater = new Theater();
+        theater.setTheater_Id(1);
+        theater.setTheater_Name("Platinum Movietime Cinema");
+        theater.setAddress("Gachibowli SLN Terminus");
+        theater.setCapacity(350);
 
-        // Assert
-        assertEquals(450, result);
+        theaterDao.editTheater(theater);
+
+        Theater updatedTheater = theaterDao.getTheaterById(theater.getTheater_Id());
+
+        assertNotNull(updatedTheater);
+        assertEquals("Platinum Movietime Cinema", updatedTheater.getTheater_Name());
+        assertEquals("Gachibowli SLN Terminus", updatedTheater.getAddress());
+        assertEquals(350, updatedTheater.getCapacity());
     }
-	
-	@After
-	public void tearDown() {
-		theater = null;
-	}
 
+    @Test
+    public void testRemoveTheater() {
+        int theaterIdToRemove = 6;
+        theaterDao.removeTheater(theaterIdToRemove);
+
+        Theater removedTheater = theaterDao.getTheaterById(theaterIdToRemove);
+
+        assertNull(removedTheater);
+    }
+
+    @Test
+    public void testDisplayTheaterdetails() {
+        List<Theater> theaters = theaterDao.displayTheaterdetails();
+
+        assertNotNull(theaters);
+        assertTrue(theaters.size() > 0);
+    }
+
+    @Test
+    public void testGetTheaterById() {
+        int theaterId = 1;
+        Theater theater = theaterDao.getTheaterById(theaterId);
+
+        assertNotNull(theater);
+        assertEquals(theaterId, theater.getTheater_Id());
+    }
+
+    @After
+    public void tearDown() {
+        theaterDao = null;
+    }
 }

@@ -70,12 +70,22 @@ public class AddShowServlet extends HttpServlet {
             ShowTimes showtime = new ShowTimes(movie, start, end, theaterId);
 
             ShowTimeDao showTimeDao = new ShowTimeDao();
-            showTimeDao.InsertShowTime(showtime);
 
-            response.sendRedirect("viewshowtime.jsp");
+            if (!showTimeDao.isTheaterExists(theater)) {
+                response.getWriter().write("<script>alert('Theater ID does not exist! Please enter a valid Theater ID.');window.location.href='addShowtiming.jsp';</script>");
+                return;
+            }
+
+            if (showTimeDao.isShowTimeExists(movieName, start, end, theater)) {
+                response.getWriter().write("<script>alert('ShowTime with the same Movie name already exists!');window.location.href='addShowtiming.jsp';</script>");
+                return;
+            } else {
+                showTimeDao.InsertShowTime(showtime);
+                response.sendRedirect("viewshowtime.jsp");
+            }
         } catch (IllegalArgumentException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid time format. Please use HH:mm");
         }
-	}
+    }
 }

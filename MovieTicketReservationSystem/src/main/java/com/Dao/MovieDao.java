@@ -220,5 +220,25 @@ public  class MovieDao implements MoviesDaoIntrfc{
         }
         return movies;
     }
+	
+	public boolean isMovieExists(String movieName) {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+
+	    try {
+	        conn = DbConnection.getConnection();
+	        String query = "SELECT * FROM movies WHERE movie_name = ?";
+	        pstmt = conn.prepareStatement(query);
+	        pstmt.setString(1, movieName);
+	        rs = pstmt.executeQuery();
+	        return rs.next();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	    	System.out.println("Finally");
+	    }
+	    return false;
+	}
 
 }

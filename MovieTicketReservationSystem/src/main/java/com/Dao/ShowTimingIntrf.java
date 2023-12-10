@@ -1,5 +1,6 @@
 package com.Dao;
 
+import java.sql.Time;
 import java.util.List;
 
 import com.Model.Movie;
@@ -17,4 +18,7 @@ public interface ShowTimingIntrf {
 	
 	public List<ShowTimes> ListAllShowTime();
 	
+	public boolean isShowTimeExists(String movieName, Time startTime, Time endTime, int theaterId);
+	
+	public boolean isTheaterExists(int theaterId);
 }

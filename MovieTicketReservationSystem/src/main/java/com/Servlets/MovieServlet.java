@@ -60,6 +60,13 @@ public class MovieServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("in post");
+        
+        String movieName = request.getParameter("movieName");
+        if (isMovieAlreadyExists(movieName)) {
+            response.getWriter().write("<script>alert('Movie with the same name already exists!');window.location.href='AddMovie.jsp';</script>");
+            return;
+        }
+        
         Part file = request.getPart("movieImage");
         
         String imageFileName = getSubmittedFileName(file);
@@ -90,7 +97,6 @@ public class MovieServlet extends HttpServlet {
         String insertQuery = "INSERT INTO movies (theaterId, movie_name, director, releasedate, casts, description, poster, duration, trailerlink, genre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         int theaterId = 1; 
-        String movieName = request.getParameter("movieName");
         String director = request.getParameter("director");
         String releasedate = request.getParameter("releasedate"); 
         String casts = request.getParameter("casts");
@@ -139,7 +145,12 @@ public class MovieServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/viewmovies");
     }
     
-    private String getSubmittedFileName(Part part) {
+    private boolean isMovieAlreadyExists(String movieName) {
+    	MovieDao movieDao = new MovieDao();
+        return movieDao.isMovieExists(movieName);
+	}
+
+	private String getSubmittedFileName(Part part) {
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("file")) {
                 return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
